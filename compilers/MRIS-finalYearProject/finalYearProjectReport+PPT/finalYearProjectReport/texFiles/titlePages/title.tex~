@@ -1,0 +1,128 @@
+\documentclass[12pt]{report}
+\usepackage{graphicx}
+\usepackage[a4paper]{geometry}
+\geometry{left=1.25 in,top= 1.0in,bottom= 1.0 in,right= 0.75 in}
+\pagenumbering{roman}
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large JSS Mahavidyapeetha\\\textbf{Sri Jayachamarajendra College of Engineering, Mysore 570 006}\\
+An Autonomous Institution Affiliated to\\
+\textbf{Visvesvaraya Technological University, Belgaum}\\
+\vspace{0.2cm}
+\end{center}
+\begin{figure}[h]
+\centering
+\includegraphics[height=4cm]{vtu.png}
+\hspace{0.4\textwidth}
+\includegraphics[height=3.7cm]{jcelogo.jpg}
+\end{figure}
+\begin{center}
+\vspace{0.2cm}
+\Huge{\textbf{Minimum Register Instruction Sequencing}}
+\vspace{2cm}
+
+\large Report submitted in partial fulfillment of the curriculum prescribed for the award of the degree of \\
+\vspace{1cm}
+\large\textbf{ Bachelor of Engineering} in {\bf Computer Science}\\ by
+\vspace{1cm}
+
+\begin{tabular}{ccc}
+\emph{\textbf{Rajkiran Anthapur}} & \emph{\textbf{Shashidhar Gopinath}} & \emph{\textbf{Vikram T.V}}\tabularnewline
+(4JC07CS001) & (4JC07CS104) & (4JC07CS120)
+\end{tabular}
+\vspace{1.7cm}
+
+\emph{Under the Guidance of}\\
+\textbf{Smt. Vasantha Raghavan}\\
+Senior Scale Lecturer,\\
+Department of CS\&E,\\
+SJCE, Mysore.
+\vspace{0.5cm}
+
+\textbf{Department of Computer Science \& Engineering}\\
+\textbf{June, 2011}\\
+\end{center}
+\newpage
+
+\begin{center}\large JSS Mahavidyapeetha\\\textbf{Sri Jayachamarajendra College of Engineering, Mysore 570 006}\\
+An Autonomous Institution Affiliated to\\
+\textbf{Visvesvaraya Technological University (VTU), Belgaum}\\
+\vspace{0.2cm}
+\begin{figure}[h]
+\centering
+\includegraphics[height=4cm]{vtu.png}
+\hspace{0.1\textwidth}
+\includegraphics[height=3.7cm]{jcelogo.jpg}
+\end{figure}
+\Huge{\bf {CERTIFICATE}}\end{center}
+
+This is to certify that the work entitled {\bf ''Minimum Register Instruction Sequencing using LLVM Compiler''} is a bonafide work carried out by {\bf Rajkiran Anthapur, Shashidhar G and Vikram T.V} in partial fulfillment of the award of the degree of {\bf Bachelor of Engineering in Computer Science \& Engineering} of {\bf Visvesvaraya Technological University, Belgaum,} during the year {\bf 2010-2011}. It is certified that all corrections/suggestions indicated during CIE have been incorporated in the report. The project report has been approved as it satisfies the academic requirements in respect of the project work prescribed for the Bachelor of Engineering Degree.
+
+\vspace{2cm}
+\begin{minipage}[t]{0.5\textwidth}%
+{\bf \emph{Guide}\\}
+{\bf Smt. Vasantha Raghavan} \\
+Senior Scale Lecturer\\
+Department of CS\&E\\
+SJCE, Mysore 570 006
+\end{minipage}\hspace{2cm}
+\begin{minipage}[t]{0.4\textwidth}%
+{\bf \emph{Head of the Department}}\\
+{\bf Dr. C.N. Ravi Kumar}\\
+Professor and Head\\
+Department of CS\&E\\
+SJCE, Mysore 570 006
+\end{minipage}
+
+\vfill
+\begin{minipage}[t]{0.3\textwidth}%
+\begin{tabular}{lcc}
+ &  & \tabularnewline
+ &  & \tabularnewline
+ &  & \tabularnewline
+Date & : & \tabularnewline
+Place &: & Mysore\tabularnewline
+\end{tabular}%
+\end{minipage}\hspace{2cm}
+\begin{minipage}[t]{0.4\textwidth}
+\noindent
+\begin{tabular}{ccr}
+Examiners & :& 1.\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\\
+&  & \\
+&  & 2.\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\\
+ &  & \\
+&  & 3.\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\\
+\end{tabular}%
+\end{minipage}
+\newpage
+
+\pagestyle{plain}
+\setcounter{page}{3}
+\begin{center}\large \textbf{ ACKNOWLEDGEMENT}\\
+\end{center}
+\vspace{2cm}
+
+We express our gratitude to {\bf Dr. B.G. Sangameshwara}. Principal, Sri Jayachamarajendra College of Engineering, for providing an excellent environment for our education and his encouragement throughout our stay in college.\\
+
+We sincerely thank {\bf Dr. C. N. Ravikumar}, Head of the Department, Computer Science SJCE, Mysore, for providing us with adequate facilities, ways and means by which we were able to complete this project. We express our sincere gratitude to him for his constant support and valuable suggestions without which the successful completion of this project would not have been possible.\\
+
+We thank {\bf Smt. Vasantha Raghavan}, our guide and {\bf Sri Prashanth Naduthota}, Professor, for their boundless cooperation and helps extended for this project. We express our immense pleasure and thankfulness to all the teachers and staff of Department of Computer Science and Engineering, SJCE for their cooperation and support.\\
+
+	Last but not the least, we thank all others, and especially our classmates and our family members who in one way or another helped us in the successful completion of this work.\\
+\vspace{2cm}
+
+\hspace{4in} Rajkiran Anthapur\\
+
+\hspace{4in} Shashidhar Gopinath\\
+
+\hspace{4in} Vikram T.V\\
+
+\newpage
+
+\begin{abstract}
+
+The execution of any program is limited by the number of variables that are \emph{live} simultaneously during execution.  A variable is said to be \emph{live} across a range during execution if its value will be \emph{used} somewhere later in the program.  Registers in the processor hold the live variables and as the number of live variables increases, there will be a shortage of registers to accomodate all the live variables simultaneously.  The processor may have to \emph{spill} some of the register values into memory so that the register can be used for some other purpose.  Spilling costs execution time because of its access to memory. Instructions can be reordered or scheduled preserving the true data flow order such that the  the maximum number of variables that are live simultaneously during program execution gets reduced which is refered to as \emph{register pressure}.  Both spilling and scheduling reduces register pressure but there arises a conflict of which of the two should be performed first to have maximum reduction of register pressure.\\
+
+In our project the MRIS approch is used  to reuse the registers by forming \emph{lineages} and reduce the register pressure. The sequencing algorithm then reorders the instructions within the lineages to get the optimal instruction sequnce maintaining the minimal register pressure.\\
+\end{abstract}
+\end{document}

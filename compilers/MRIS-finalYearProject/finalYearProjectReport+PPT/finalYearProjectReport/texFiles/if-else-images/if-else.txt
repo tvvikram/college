@@ -1,0 +1,101 @@
+Consider another example involving an if-else construct. The code is shown in the figure. Figures [ ] show the data-dependency graphs generated for the basic blocks of the if-else construct, their corresponding lineages after lineage fusions and the final sequence.
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.30]{./if-else-images/bb1.png}
+\else
+\fi
+\caption{BB1 for if-else}
+\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.30]{./if-else-images/bbLineageSeq1.png}
+\else
+\fi
+\caption{Lineages and final sequence for BB1 of if-else}
+\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.30]{./if-else-images/bb2.png}
+\else
+\fi
+\caption{BB2 for if-else}
+\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.50]{./if-else-images/bbLineageSeq2.png}
+\else
+\fi
+\caption{Lineages and final sequence for BB2 of if-else}
+\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.30]{./if-else-images/bb3.png}
+\else
+\fi
+\caption{BB3 for if-else}
+\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.50]{./if-else-images/bbLineageSeq3.png}
+\else
+\fi
+\caption{\caption{Lineages and final sequence for BB3 of if-else}
+\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.50]{./if-else-images/bb4.png}
+\else
+\fi
+\caption{BB4 for if-else}
+\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.50]{./if-else-images/bbLineageSeq4.png}
+\else
+\fi
+\caption{\caption{Lineages and final sequence for BB4 of if-else}
+\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.50]{./if-else-images/bb5.png}
+\else
+\fi
+\caption{BB5 for if-else: \emph{max} gets returned}
+\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.50]{./if-else-images/bbLineageSeq5.png}
+\else
+\fi
+\caption{\caption{Lineages and final sequence for BB5 of if-else}
+\end{center}
+\end{figure}
+

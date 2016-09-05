@@ -1,0 +1,165 @@
+\documentclass[column,12pt]{article}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{amsthm}
+\newtheorem{mydef}{Definition}
+\usepackage{ifpdf}
+\usepackage{hyperref}
+\linespread{2}
+\usepackage[left=1.25in,top=1in,bottom=1in,right=.75in,nohead,nofoot]{geometry}
+\title{\huge{\underline{\textbf{Minimum Register Instruction Sequencing}}}}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\section{Approach to MRIS Problem}
+\subsection{Lineage Formation}
+A node may have many immediate descendants in a DDG, but there can only be one node among them that can be selected as the heir. An heir inherits the register form its parent node and hence becomes a part of the lineage. This imposes a restriction that the heir must be the last one among the descendants of the node to be executed as it redefines the register shared by the parent and the value is lost after redefinition.\\
+
+The lineage formation algorithm attempt to form as long lineages as possible. The heir in any lineage is the last one to be executed, hence the live ranges of the instructions do not interfere with each other and all the instructions in the lineage can share the same register. In order to ensure that the heir is the last one to be executed, the algorithm introduces \emph{sequencing edges}. A sequencing edge from node \emph{$v_{i}$} to \emph{$v_{j}$} imposes the constraint that \emph{$v_{i}$} must be listed before \emph{$v_{j}$}. This implies that all the nodes that reach \emph{$v_{i}$} must be listed before any node from \emph{$v_{j}$} is listed. The algorithm makes sure that the introduction of sequencing edges does not make the graph cyclic, which would make it impossible to obtain a sequence for the instructions in the DDG, by using the \emph{height} property to select the heir. The \emph{height} of a node is computed as per the equation \\
+
+During the lineage formation, if a node \emph{$v_{i}$} has multiple descendants, then the algorithm chooses the node which is having the lowest height among the descendants to be the heir of \emph{$v_{i}$}. If two or more nodes have the same height then the algorithm arbitrarily breaks the tie and it recomputes the height of each node after the introduction of sequencing edges to avoid the formation of cycles. Lineages are formed by the arcs between the nodes and the chosen heirs. Each arc that is a part of a lineage is the def-last-use arc in DDG. \\
+
+The Lineage Formation algorithm is essentially a greedy depth first graph traversal algorithm which identifies the heir of each node by the height property. The algorithm introduces sequencing edges after the heir of a node is selected if the node has multiple descendants and the heights of all the nodes in the DDG are recomputed. The detailed algorithm is represented in the figure [ put no here ]. The algorithm distinguishes between the sequencing edges and the flow edges. If there is a sequencing edge between node \emph{$v_{i}$} to node \emph{$v_{j}$}, then \emph{$v_{j}$} is not considered as the descendant of \emph{$v_{i}$} for the purpose of lineage formation. Only those arcs that represent data dependences are considered for lineage formation. \\
+\linespread {1}
+\begin{algorithm}
+\caption{Lineage\_Formation(V, E)}
+\begin{algorithmic} [1]
+\STATE mark all nodes in DDG as \emph{not in any lineage}
+\STATE compute the height of every node in DDG
+\WHILE { there is a node \emph{not in any lineage} }
+	\STATE  recompute height $\leftarrow false $
+	\STATE \emph{$v_i$} $\leftarrow$ highest node not in lineage
+	\STATE start a new lineage containing \emph{$v_i$}
+	\STATE mark \emph{$v_i$} as \emph{in a lineage}
+	\WHILE { \emph{$v_i$} has a descendant }
+		\STATE \emph{$v_j$} $\leftarrow$ lowest descendant of \emph{$v_i$}
+		\IF { \emph{$v_i$} has multiple descendants}
+			\STATE recompute height $\leftarrow$ true
+			\FOR { each descendant \emph{$v_k$} $\neq$ \emph{$v_j$} of \emph{$v_i$} }
+				\STATE add sequencing edge from \emph{$v_k$} to \emph{$v_j$}
+			\ENDFOR
+		\ENDIF
+		\STATE add \emph{$v_j$} to lineage
+		\IF {\emph{$v_j$} is already marked as \emph{in a lineage} }
+			\STATE end lineage with \emph{$v_j$} as the last node
+			\STATE \textbf{break} ;
+		\ENDIF
+		\STATE mark \emph{$v_j$} as \emph{in lineage}
+		\STATE \emph{$v_i$} $\leftarrow$ \emph{$v_j$}
+	\ENDWHILE
+	\IF { recompute height = true}
+		\STATE recompute the height of every node in the DDG
+	\ENDIF
+\ENDWHILE
+\end{algorithmic}
+\end{algorithm}
+\linespread{2}
+\subsection{Lineage Interference Graph}
+By determining the live ranges of two lineages and verifying that the two lineages do not overlap, it is possible to make the two lineages share the same register. The live range of a register is given by the definition-
+
+\begin{mydef}
+ If $v_1$, the first instruction of a lineage $L = [ v_1,v_2,....,v_n)$ is in position t, and the last instruction $v_n$ of L is in the position $t_j$ in an instruction sequence , then the \textbf{live range} of the lineage L starts at $t_{i+1}$ and ends at $t_j$.
+\end{mydef}
+
+The live range of a lineage is always contiguous, irrespective of interleavings of instructions from multiple lineages. Thus the live range is active from the listing of the first instruction in the lineage until the listing of the last instruction. \\
+
+In order to determine whether the live ranges of two lineages must necessarily overlap, a condition is defined based on the existence of paths between the lineages. Two sets of nodes are defined. S is the set of nodes that start lineages and E is the set of nodes that end lineages. Then a \emph{reach} relation R is defined as \\
+
+\begin{mydef}
+The reach relation R: S $\rightarrow$ E maps S to E. For all $v_a$ $\in$ S and $v_b$ $\in$ E, node $v_a$ reaches node $v_b$ , $R(v_a, v_b) = 1$, if there is a path in the augmented DDG from $v_a$ to $v_b$. Otherwise, $R(v_a, v_b) = 0$.\\
+\end{mydef}
+
+The reach relation is used to determine whether the live ranges of two lineages must necessarily overlap in all legal instruction sequences for the augmented DDG.
+
+\begin{mydef}
+Two lineages, $L_{u} = [u_{1},u_{2},....,u_{m})$ and $L_{v} = [v_{1}, v_{2},...., v_{n})$, \textbf{definitely overlap} if they overlap in all possible instruction sequences. \\
+\end{mydef}
+
+The Lineage Interference Graph (LIG) is constructed as an undirected graph whose nodes represent lineages. The graph contains a arc between two nodes if and only if the live ranges of lineages represented by the nodes \emph{definitely overlap}. Essentially there is a edge in LIG between two lineages $L_{u} = [u_{1},u_{2},....,u_{m})$ and $L_{v} = [v_{1}, v_{2},...., v_{n})$ if and only if $\emph{R($u_{1}$,$v_{n}$)} = 1$ and $\emph{$R(v_{1}$,$u_{m}$)} = 1$. \\
+
+\subsection{Lineage Fusion}
+Let there be two lineages $L_{u} = [u_{1},u_{2},....,u_{m})$ and $L_{v} = [v_{1}, v_{2},...., v_{n})$. The two lineages do not necessarily overlap if $\emph{R($u_{1}$,$v_{n}$)} = 1$ and $\emph{$R(v_{1}$,$u_{m}$)} = 0$, i.e $u_{1}$ reaches $v_n$ , but $v_1$ does not reach $u_m$. Therefore there is always a possibility to find a legal sequence where the two live ranges do not overlap, and both lineages can share the same register. Conversely if the nodes of $L_v$ are listed in the instruction sequence before all the nodes in $L_u$ are listed; the two lineages interfere and cannot share the same register.\\
+
+This can be prevented by introducing new sequencing constraint in DDG. The constraint forces all the nodes of $L_u$ to be listed before any node of $L_v$ is listed. This is called \emph{lineage fusion}. As the name suggests, the lineage fusion operation fuses two lineages which may not necessarily interfere into a single lineage and treat the two lineages $L_u$ and $L_v$ as if they are a single lineage. Lineage fusion also reduces the number of nodes in the lineage interference graph, there by reducing the cost of coloring the graph. Formally Lineage Fusion is defined as\\
+
+\begin{mydef}
+Two lineages $L_u$ = [$u_1$, $u_2$,....,$u_m$) and $L_v$ = [$v_1$, $v_2$,...., $v_n$) can be fused into a single lineage if:
+	\begin{itemize}
+	\item $u_1$ reaches $v_n$, i.e., $R(u_{1}, v_{n}) = 1$;
+	\item $v_1$ does not reach $u_m$, i.e., $R(v_{1}, u_{m}) = 0$.\\
+	\end{itemize}
+\end{mydef}
+
+When the lineages $L_u$ and $L_v$ are fused together, a sequencing edge from $u_m$ to $v_1$ is inserted in the DDG. The lineages $L_u$ and $L_v$ are removed and a new lineage $L_{w} = [u_{1}, u_{2},...., u_{m}) \cup [v_{1}, v_{2},...., v_{n})$ is inserted in the lineage set. The last node of the first lineage, $u_m$ , does not necessarily use the same registers as the other nodes in the new $L_w$ lineage. Thus, it is important to represent the lineage resulting from the fusion as a union of semi-open sequences. \\
+
+Fusing two lineages causes the corresponding nodes in the interference graph to be combined into a single node, say \emph{w}. Every edge that was incident on the either of the nodes in the lineages before fusing is now incident on \emph{w}. As a consequence, the interference graph is updated after each such fusion operation. It is also legal to fuse lineages which are completely independent, i.e. when $R(u_{1}, v_{n}) = 0$ and $R(v_{1}, u_{m}) = 0$. However such fusions would impose unnecessary constraints in the sequencing of $L_u$ and $L_v$. The coloring algorithm indicates such situations thus providing freedom for sequencing algorithm.\\
+
+Lineage fusion is applied after the lineage formation and before the coloring of the lineage interference graph. The reason being that the interference graph to be colored would have less number of nodes and would require less number of colors.\\
+
+To find the lineages that can be fused, the set of lineages is searched for $L_u$ = [$u_1$, $u_2$,....,$u_m$) and $L_v$ = [$v_1$, $v_2$,...., $v_n$) such that $R(u_{1}, v_{n}) = 1$ and $R(v_{1}, u_{m}) = 0$. In accordance to the fusion condition a new lineage is formed as $L_w$ = $L_u$ $\cup$ $L_v$, which requires that a new sequencing edge must be added from $u_m$ to $v_1$. The addition of this new edge necessitates the updating of reach relation. The algorithm updates the reach relation such that all the nodes that could reach $u_m$ prior to the fusion can also reach $v_n$ after the fusion. Now $v_1$ is no longer the start node of the fused lineage $L_w$, and hence the row corresponding to node $v_1$ is discarded from the reach relation. Similarly, if $u_m$ does not terminate any other lineage, its column can also be discarded from the reach relation. Further $v_1$ is removed from the set start nodes S, and $u_m$ is removed from the set of end nodes E, if $u_m$ does not end any other lineages other than $L_w$.\\
+
+If there are multiple candidates for lineage fusion, the algorithm arbitrarily selects two lineages and performs the fusion operation. Each fusion results in the updating of sets S, E and reach relation R. The algorithm continues to search for a suitable pair to fuse until it finds none. It is also possible that a fused lineage $L_u$ $\cup$ $L_v$ may again be fused with some other lineage, say $L_x$ (if they form a legal pair to fuse), thus resulting in a compound lineage $L_u$ $\cup$ $L_v$ $\cup$ $L_x$. The order in which the lineages are fused will determine the size of the interference graph and hence the heuristic register bound values. Different order in the fusion of lineages produces different heuristic register bound values.\\
+
+\subsection{Coloring the Interference Graph}
+
+The Lineage Interference Graph can be colored using a heuristic graph coloring algorithm. The number of colors required to color the interference graph is referred to as the Heuristic Register Bound (HRB). Due to the heuristics involved in coloring and due to the sequencing order of descendants nodes in DDG, the HRB computed is near-optimal solution and graph coloring generally is NP-complete.\\
+
+\subsection{Instruction Sequence Generation}
+
+Once the coloring of the Lineage Interference Graph is completed, each lineage is associated with a register and hence the nodes in the lineage. It is assumed that those registers that are live-in and live-out in the DDG are assigned by the Global Register Allocator. This implementation accounts for the live-in and live-out of registers by the dummy \emph{source} and \emph{sink} nodes.\\
+
+The sequencing algorithm used here is a modified list scheduling algorithm. It uses the information obtained from the coloring of the interference graph, and \emph{lists} the nodes from a ready list based on the height priority and availability of registers assigned to them.\\
+
+\linespread {1}
+\begin{algorithm}
+\caption{Sequencing($G^|$, L, A)}
+\begin{algorithmic} [1]
+\STATE ReadyList $\leftarrow$ \{($v_i$, $R_j$) such that $v_i$ has no predecessor \}
+\STATE RegAvailable $\leftarrow$ \{$R_1$, $R_2$,....,$R_N$\}
+\WHILE { ReadyList $\neq$ $\phi$ }
+	\FOR {each node $v_i$ in the ReadyList in decreasing height order}
+		\IF {($v_i$ $\notin$ S) \textbf{or} ((($v_i$, $R_j$) $\in$ A) \textbf{and} ($R_j$ $\in$ RegAvailable)) }
+			\STATE // either $v_i$ is not n start node of lineage or
+			\STATE // the register assigned to $v_i$ in A is available
+			\STATE Remove $R_j$ from RegAvailable
+			\STATE Remove ($v_i$, $R_j$) from ReadyLIst
+			\STATE List ($v_i$, $R_j$)
+			\STATE Add to the ready list all successors of $v-i$ that have a;; its predecessor listed
+			\IF {($v_i$ $\in$ E) \textbf{and} ($v_i$, $R_j$) $\in$ A}
+				\STATE // node $v-i$ ends a lineage which
+				\STATE// is assigned register $R_j$
+				\STATE Return $R_j$ to RegAvailable
+			\ENDIF
+		\ENDIF	
+	\ENDFOR
+\ENDWHILE
+\end{algorithmic}
+\end{algorithm}
+\linespread{2}
+
+The sequencing algorithm takes inputs $G^|$, the augmented DDG with sequencing edges, \emph{L}, list of lineages obtained from the lineage formation algorithm and after the lineage fusion is applied, and \emph{A}, the register assignment for the nodes from the coloring of the lineage interference graph.\\
+
+This algorithm may result in a deadlock due to two reasons. First, the order of listing of nodes belonging to two different lineages having the same color assigned may result in deadlock. Such type of deadlocks are referred to as \emph{avoidable deadlocks}. These can be avoided by applying the lineage fusion. The other kind of deadlocks, referred to as \emph{unavoidable deadlocks}, arise due to the underestimation of HRB. This could happen because the condition used to test if two live ranges definitely overlap is sufficient but not necessary.\\
+
+should illustrate with example\\
+
+Even with the application of lineage fusion, unavoidable deadlocks occur when the HRB computed by the register coloring algorithm is lower than the number of registers actually needed. In such cases there does not exist a legal sequence of instructions that uses HRB or lower number of registers. The simple approach to overcome this is to increase the HRB value computed by one. The algorithm then picks up one node in the Ready List and changes it register assignment to a new register ( and for the remaining nodes as well). This strategy overcomes the deadlock by gradually increasing the HRB value and trying to obtain a legal sequence of instructions with as few extra register as possible.\\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

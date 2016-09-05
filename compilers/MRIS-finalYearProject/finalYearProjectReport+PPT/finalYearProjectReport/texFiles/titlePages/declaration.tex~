@@ -1,0 +1,30 @@
+\documentclass[12pt]{report}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=1in]{geometry}
+\geometry{left=1.25 in,top= 1.0in,bottom= 1.0 in,right= 0.75 in}
+\begin{document}
+
+\begin{center}
+{\bf \huge DECLARATION}
+\end{center}
+
+\pagestyle{empty}
+\vspace{3cm}
+We, {\bf Rajkiran Anthapur, Shashidhar G } and {\bf Vikram T.V}, bearing {\bf USN: 4JC07CS001, USN: 4JC07CS104 \& USN: 4JC07CS120} respectively, hereby declare that this dissertation work entitled {\bf ``Minimum Register Instruction Sequencing using LLVM''} was independently carried out by us under the guidance and supervision of Smt. Vasantha Raghavan, guide, Department of Computer Science and Engineering, Sri Jayachamarajendra of Engineering, Mysore and Shri. Prashantha Naduthota, Professor. This dissertation work is submitted to Visvesvaraya Technological University in partial fulﬁllment of the requirements for the award of Degree of Bachelor of Engineering in Computer Science during the academic year 2010 - 2011.\\\\\\\\
+
+Place: Mysore
+
+Date:
+
+\vspace{2cm}
+
+\hspace{4in} Rajkiran Anthapur\\
+
+\hspace{4in} Shashidhar G\\
+
+\hspace{4in} Vikram T.V\\
+
+
+\include{introduction}
+\include{references}
+\end{document}

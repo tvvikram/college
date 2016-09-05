@@ -1,0 +1,59 @@
+%\newlength{\toptafiddle} 
+%\newlength{\bottafiddle}
+%
+\setlength{\toptafiddle}{1in}
+\setlength{\bottafiddle}{1in}
+\vspace*{-0.5in}
+\enlargethispage{\bottafiddle}
+\thispagestyle{empty}
+
+\begin{center}\large JSS Mahavidyapeetha\\\textbf{Sri Jayachamarajendra College of Engineering, Mysore 570 006}\\
+An Autonomous Institution Affiliated to\\
+\textbf{Visvesvaraya Technological University (VTU), Belgaum}\\
+\vspace{0.2cm}
+\begin{figure}[h]
+\centering
+\includegraphics[height=4cm]{images/vtu.png}
+\hspace{0.1\textwidth}
+\includegraphics[height=3.7cm]{images/jcelogo.jpg}
+\end{figure}
+\Huge{\bf \underline{Certificate}}\end{center}
+
+This is to certify that the work entitled {\bf ''WEB SERVER USING SPARTAN 3E FPGA''} is a bonafide work carried out by {\bf GAUTHAM KAMATH, SANTOSH M PATIL, SHRIDHAR MAJALI and VINAY G} in partial fulfillment of the award of the degree of Bachelor of Engineering in Electronics \& Communication Engineering of Visvesvaraya Technological University, Belgaum, during the year 2010-2011. It is certified that all corrections / suggestions indicated during CIE have been incorporated in the report. The project report has been approved as it satisfies the academic requirements in respect of the project work prescribed for the Bachelor of Engineering Degree.
+
+\vfill
+\begin{minipage}[t]{0.5\textwidth}%
+\emph{Guide}\\
+Dr.C.R.VENUGOPAL \\
+Professor and Head\\
+Department of E\&C\\
+SJCE, Mysore 570 006
+\end{minipage}\hspace{2cm}
+\begin{minipage}[t]{0.4\textwidth}%
+{\emph{Head of the Department}}\\
+Dr.C.R.VENUGOPAL\\
+Professor and Head\\
+Department of E\&C\\
+SJCE, Mysore 570 006
+\end{minipage}
+
+\vfill
+\begin{minipage}[t]{0.3\textwidth}%
+\begin{tabular}{lcc}
+ &  & \tabularnewline
+ &  & \tabularnewline
+ &  & \tabularnewline
+Date & : & \tabularnewline
+Place &: & Mysore\tabularnewline
+\end{tabular}%
+\end{minipage}\hspace{2cm}
+\begin{minipage}[t]{0.4\textwidth}%
+\noindent %
+\begin{tabular}{ccr}
+Examiners & :& 1.\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\\
+&  & \\
+&  & 2.\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\\
+ &  & \\
+&  & 3.\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\\
+\end{tabular}%
+\end{minipage}
