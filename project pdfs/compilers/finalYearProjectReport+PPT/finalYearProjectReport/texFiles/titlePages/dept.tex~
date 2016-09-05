@@ -1,0 +1,103 @@
+\documentclass[12pt]{report}
+\usepackage{graphicx}
+\usepackage{pgfpages}
+\usepackage{pgf}
+\pgfpagesdeclarelayout{boxed}
+{
+	\edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%    logical pages=1,%  }
+  \pgfpageslogicalpageoptions{1}
+  {
+    border code=\pgfsetlinewidth{1pt}\pgfstroke,%    border shrink=\pgfpageoptionborder,%    resized width=.85\pgfphysicalwidth,%    resized height=.95\pgfphysicalheight,%    center=\pgfpoint{0.5\pgfphysicalwidth}{0.5\pgfphysicalheight}%  }%}
+
+\pgfpagesuselayout{boxed}
+\usepackage[a4paper,margin=1in]{geometry}
+\geometry{left=1.25 in,top= 1.0in,bottom= 1.0 in,right= 0.75 in}
+\pagenumbering{roman}
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large JSS Mahavidyapeetha\\\textbf{Sri Jayachamarajendra College of Engineering, Mysore 570 006}\\
+An Autonomous Institution Affiliated to\\
+\textbf{Visvesvaraya Technological University, Belgaum}\\
+\vspace{0.2cm}
+\end{center}
+\begin{figure}[h]
+\centering
+\includegraphics[height=4cm]{vtu.png}
+\hspace{0.4\textwidth}
+\includegraphics[height=3.7cm]{jcelogo.jpg}
+\end{figure}
+\begin{center}
+\vspace{0.2cm}
+\Huge{\textbf{Minimum Register Instruction Sequencing}}
+\vspace{2cm}
+
+\large Report submitted in partial fulfillment of the curriculum prescribed for the award of the degree of \\
+\vspace{1cm}
+\large\textbf{ Bachelor of Engineering} in {\bf Computer Science}\\ by
+\vspace{1cm}
+
+\begin{tabular}{ccc}
+\emph{\textbf{Rajkiran Anthapur}} & \emph{\textbf{Shashidhar G}} & \emph{\textbf{Vikram T.V}}\tabularnewline
+(4JC07CS001) & (4JC07CS104) & (4JC07CS120)
+\end{tabular}
+\vspace{1.7cm}
+
+\emph{Under the Guidance of}\\
+\textbf{Smt. Vasantha Raghavan}\\
+Senior Scale Lecturer,\\
+Department of CS\&E,\\
+SJCE, Mysore.
+\vspace{0.5cm}
+
+\textbf{Department of Computer Science \& Engineering}\\
+\textbf{June, 2011}\\
+\end{center}
+\newpage
+
+\begin{center}\large JSS Mahavidyapeetha\\\textbf{Sri Jayachamarajendra College of Engineering, Mysore 570 006}\\
+An Autonomous Institution Affiliated to\\
+\textbf{Visvesvaraya Technological University (VTU), Belgaum}\\
+\vspace{0.2cm}
+\begin{figure}[h]
+\centering
+\includegraphics[height=4cm]{vtu.png}
+\hspace{0.1\textwidth}
+\includegraphics[height=3.7cm]{jcelogo.jpg}
+\end{figure}
+\Huge{\bf {CERTIFICATE}}\end{center}
+
+This is to certify that the work entitled {\bf ''Minimum Register Instruction Sequencing using LLVM Compiler''} is a bonafide work carried out by {\bf Rajkiran Anthapur, Shashidhar G} and {\bf Vikram T.V} in partial fulfillment of the award of the degree of {\bf Bachelor of Engineering in Computer Science \& Engineering} of {\bf Visvesvaraya Technological University, Belgaum,} during the year {\bf 2010-2011}. It is certified that all corrections/suggestions indicated during CIE have been incorporated in the report. The project report has been approved as it satisfies the academic requirements in respect of the project work prescribed for the Bachelor of Engineering Degree.
+
+\vspace{3.5cm}
+\begin{minipage}[t]{0.5\textwidth}%
+{\bf \emph{Guide}\\}
+{\bf Smt. Vasantha Raghavan} \\
+Senior Scale Lecturer\\
+Department of CS\&E\\
+SJCE, Mysore 570 006
+\end{minipage}\hspace{2cm}
+\begin{minipage}[t]{0.4\textwidth}%
+{\bf \emph{Head of the Department}}\\
+{\bf Dr. C.N. Ravi Kumar}\\
+Professor and Head\\
+Department of CS\&E\\
+SJCE, Mysore 570 006
+\end{minipage}
+
+\vfill
+\begin{flushleft}
+\begin{tabular}{p{2in} p{2in} l} 
+Date: & Name of Examiner & Signature\\
+ & &\\
+Place: & 1.  & 1................\\
+& &\\ 
+& 2. & 2................\\
+& &\\ 
+& 3. & 3................\\
+\end{tabular}
+\end{flushleft}
+\end{document}

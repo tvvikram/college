@@ -1,0 +1,77 @@
+\documentclass[onecolumn,12pt]{article}
+\usepackage{setspace}
+\usepackage{ifpdf}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[left=2cm,top=1.5cm,bottom=1.5cm,right=3cm,nohead,nofoot]{geometry}
+
+\title{\huge{\underline{\textbf{Minimum Register Instruction Sequence }}}}
+\author{}
+\date{}
+\doublespacing
+\begin{document}
+\maketitle
+\section{MRIS- The approach}
+For an Out-Of-Order issue processor which has many execution units, the ability to execute more than one instructions at the same time increases the yield for the program.  But the problem of finding those instructions which can execute parallelly is difficult.  Instructions have data dependencies on other instructions.  That means, an Instruction makes use of the result produced by some other Instruction.  An Instruction cannot start execution until all its Data Dependencies are satisfied.  To make use of the ability of the OOO processor, Instructions which have all there Data Dependencies satisfied at that particular point need to be executed parallelly.  The Scheduling phase re-orderes the Instructions such that number of cycles the program has to wait for dependencies to satisfy is reduced thus reducing the execution time.  It takes in account the Latency of each of the Instruction before finding a schedule.  The variables that are represented in each instructions are to given register to store their values. Since the target processor has limited number of registers, the compiler will encompass a separate phase of Register allocation for each of the virtual registers described in the aforementioned instructions.  If two variables are needed at a same point, those values need to represented in two diferent registers. If the program has many such variables, the need for more registers also increases.  But since the number of registers are limited in any architecture processor, some variable of the program will have to be represented in memory rather than registers.  This is called spilling. Spilling leads to the introduction of Loads and Stores for the variables which are spilled. This make the program to have more Storage dependencies (Anti-dependencies). For an Out-of-order(OOO) processor this means that is takes longer time resolving the dependecies because Load and store instructions takes longer time to execute. This hits hard on the performance of OOO processors. 
+
+The Minimum Register Instruction Sequencing (MRIS) tries to reduce the Register pressure of the program by rearranging the instructions.  The solution tries to find a set of instructions that can definitely share a register.  This set of Instructions is defined as a \emph{Lineage}.  A single register is allocated to each of the lineages and all the instructions in a lineage will use the same register to produce their result.  The lineages are constructed to have as many instructions in them as possible.  Thus, allocating a single register to many instructions reduces the Register Pressure on the program.  
+
+\subsection{Motiviatating Example}
+The live range of a variable starts at the point of definition of that variable and ends at the last use.  If two variables are simultaneously live at any point in the program, then those two variable need separate registers to store there values.  These live ranges interfere with one another.  The interfering live variables increases the register pressure since each of the live variables have to be represented by a separate register.  The Non-interfering live variables can use a same register, thereby decreasing the register pressure of the program.
+
+The Data Dependency Graph (DDG) represents the dependencies of instructions on one another.  The nodes represents the Instructions while an edge tells about the data flow from one instruction to another.  DDG can be called as the Data flow of the program.  Any sequence of instructions that will be generated has to conform to the DDG.  An example DDG is shown in the figure 1.
+
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.45]{sequence.png}
+\else
+%	\includegraphics[scale=0.45]{sequence.png}
+\fi
+\caption{An example. (a)DDG. (b) Instruction Sequence 1. (c) Instruction Sequence 1}
+\label{fig:1}
+\end{center}
+\end{figure}
+
+The figure gives a Data depency graph and two of the possible instruction sequence. Both of the Instruction sequences conform to the given DDG.  Also the live ranges of each of the variables produced by the instruction is given.  The number of overlapping live ranges in the instruction sequence 1 is 4 and its 3 for the instruction sequence 2.  Comparing both the instruction sequence, the sequence 2 has minimum register pressure than that of sequence 1.  In the DDG, the node \emph b passes the value that it produced to node \emph f and since there is no other nodes that uses the value of \emph b, we can definitely say that in any instruction sequence, the register that is assigned to \emph b can be reused by \emph f.  Similarly the nodes \emph e and \emph g can share the same register.  Now, can \emph f and \emph g share the same register? No. Beacuse both the instructions produde values that is used by the node \emph h.  Hence nodes \emph f and \emph g interfere in all the possible instruction sequence and need separate registers for each one of them.  Now considering the nodes \emph c and \emph d, although both are interfering in the instruction sequence 1, the sequence 2 places \emph c and \emph d that they are not live simultaneously.  This makes the nodes \emph c and \emph d share a same register.  The DDG tells about the nodes that definitely overlap and those that may not overlap for all the instruction sequence.  In order a generate a minimal register pressure instruction sequence, the nodes that can definitely share a register has to be identfied.
+
+The MRIS approach is bounded by the concept of \emph{Lineages}. Lineage is a set of Instructions that can definitely share a register.  The instructions for a Lineage are selected based on the DDG.  A node will pass on its value to its descendant.  If there are multiple descendants then one of them is chosen to be the heir.  Hence the register that is used by the parent to store its value will be passed on to its heir.  Such sequence of instructions I$_1$, I$_2$, I$_3$... I$_n$ where I$_2$ is a heir of I$_1$, I$_3$ as heir of I$_2$ and so on, will form an Instruction Lineage.  All the instructions in a lineage will share a same register, as the register is passed onto from one instruction to another.  
+
+Since the Instruction sequence that will be generated must conform to the DDG, the instructions in a lineage has a implicit order of execution.  The hier of a node cannot execute until its parent finishes its exectution.  If a parent has many descendants, the heir of the parent node must not start execution until all other descandants of the parent node finishes use of the value produced by the parent. Hence the order of execution should have parent node and all the descendants of the parent node other than the heir and then only the heir of the parent node starts execution.  This sequencing constriant is represented by having an \emph{Sequencing edges} from other descendants of the parent node to its heir.  This results in the updation of the DDG called the \emph{Augmented DDG}.  The original DDG and its corresponding Augmented DDG is represented in the Figure 2.
+
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.50]{lig.png}
+\else
+%	\includegraphics[scale=0.50]{lig.png}
+\fi
+\caption{Data dependence graph for the motivating example. (a) Original DDG. (b) Augmented DDG. (c) Lineage interference graph.}
+\label{fig:2}
+\end{center}
+\end{figure}
+
+For the given DDG, the lineages are 
+
+\hspace{1in}L$_1$ = \{a, b, f, h\}
+
+\hspace{1in}L$_2$ = \{c, f\}
+
+\hspace{1in}L$_3$ = \{e, g, h\}
+
+\hspace{1in}L$_4$ = \{d, g\}
+
+The lineage start from the point where the first instruction produces the value in a register and ends at the last use of that register for that lineage.  Hence the lineages are represented as the def-last\_use relation of instructions wherein the last instruction uses the value in the register.  The last instruction may be part of another lineage.  Thus we represent this relation starting with a closed interval and ending the lineage by a open interval.  This represenation for the lineages generated above will be,
+
+\hspace{1in}L$_1$ = [a, b, f, h)
+
+\hspace{1in}L$_2$ = [c, f)
+
+\hspace{1in}L$_3$ = [e, g, h)
+
+\hspace{1in}L$_4$ = [d, g)
+
+After having defined the set the instructions that can definitely share a register as lineages, the process of Register Allocation of instruction in the program is now to allocate registers for the lineages.  The live range of a lineage is the concatenation of the live ranges of the instructions that the lineage contain.  To determine the interference between two lineages, we have to see whether the live range of the two lineages overlap in all legal sequence of instructions.  If the live range of two lineages overlap in all the instruction sequences then they cannnot share a register.  This is represented by having an edge between the two lineages in the Lineage Interference Graph(LIG).  If two lineages does not overlap atleast in some legal instruction sequences, then the two lineages can share a same register given that there is some ordering of instructions between the lineages.  The Lineage Interference Graph is constructed by the data of the lineages interfering with each other.  The traditional coloring approach is used to color the LIR.  The minimum number of color required to color the LIR give the minimum number of register needed for allocating to all of the instruction in the program.  This number is called the Heuristic Register Bound(HRB).
+
+The sequencing of the instructions is done using the coloring of lineages and the DDG of the program so that the sequence generated has minimum register pressure.  
+\end{document}
