@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>HTML Frames Example - Menu 1</title>
+<style type="text/css">
+body {
+	font-family:verdana,arial,sans-serif;
+	font-size:15pt;
+	margin:10px;
+	background-color:#ff9900;
+	}
+</style>
+</head>
+	<body>
+		<h4><?php	echo $_SESSION['username'];	?></h4>
+		<a href="welcome.html" target="right">Welcome</a><br /><br />
+		<a href="profile.php" target="right">Profile</a><br /><br />
+		<a href="updateProfile.php" target="right">Update profile</a><br /><br />
+		<a href="logout.php" target="_top">Logout</a><br />	<br />
+	</body>
+	
+</html>

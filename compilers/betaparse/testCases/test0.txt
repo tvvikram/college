@@ -1,0 +1,36 @@
+include stdio
+macro  hi   a = b; endm
+main(a, b)
+	a = b;
+	test a > b
+		s++;
+		test a > b
+			r+=r;
+		endt
+		otherwise
+		loop a > b	// xyz
+			r = r;
+			loop r < b
+				s--;
+			endl
+		endl
+	endt
+	test a == b
+		r--;
+	endt
+endf
+
+
+
+
+a()
+	loop a<b
+		a+;
+		b--;
+	endl
+endf
+b()
+	c++;
+	x=;
+endf
+endp

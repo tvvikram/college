@@ -1,0 +1,9 @@
+<?php
+session_start();
+if(!session_is_registered(username)){
+header("location:mainLogin.php");
+}
+?>
+<?php
+header("location:panel.html");
+?>

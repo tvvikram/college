@@ -1,0 +1,14 @@
+<html>
+	<head><title>Frames</title></head>
+		<frameset cols="20%, *">
+			<frameset rows="50%, *">
+				<frame src="mainLogin.php"></frame>	
+			</frameset>
+		</frameset>
+		<NOFRAMES>
+	      <P>This frameset document contains:
+    		<UL>
+        		<LI><A href="mainLogin.php">Some neat contents</A>
+         	</UL>
+  </NOFRAMES>
+</html>

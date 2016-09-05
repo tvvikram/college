@@ -1,0 +1,13 @@
+\BOOKMARK [1][]{section.1}{Overview}{}
+\BOOKMARK [1][]{section.2}{Glossary}{}
+\BOOKMARK [1][]{section.3}{Flow diagram of the operation}{}
+\BOOKMARK [1][]{section.4}{Syntax-Directed Definitions and Translation Schemes}{}
+\BOOKMARK [2][]{subsection.4.1}{Syntax-Directed Definitions}{section.4}
+\BOOKMARK [1][]{section.5}{Intermediate Representation}{}
+\BOOKMARK [1][]{section.6}{Example}{}
+\BOOKMARK [1][]{section.7}{Three Address Code}{}
+\BOOKMARK [1][]{section.8}{Implementation of Translation Schemes}{}
+\BOOKMARK [2][]{subsection.8.1}{Translation of Expressions}{section.8}
+\BOOKMARK [2][]{subsection.8.2}{Flow of control statements}{section.8}
+\BOOKMARK [2][]{subsection.8.3}{Control-Flow Translation of Boolean Expression}{section.8}
+\BOOKMARK [1][]{section.9}{References}{}

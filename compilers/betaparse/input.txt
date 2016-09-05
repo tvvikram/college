@@ -1,0 +1,43 @@
+main()
+a = b;
+ABC3 = (BC + CD); 
+a = b+d;
+s = 79;
+23 = pm;
+a += p;
+b -= 0;
+c *= i;
+d = (p+q)-r;
+a == b;
+a[10] = b[0];
+a[i][j] = 25;
+a->node = NULL;
+c.l = b.l;
+a = (h+f;
+x = y = z = 0;
+s = (p *q) -f;
+a++;
+--r;
+x = a++ + (b--) -(c--);
+p = --p + ++q;
+a[i][j][k] = b[i][j];
+b[45] = (a,c,d);
+25 = a + m;
+( a + b)=12;
+pmg2 = 100;
+abc = shri;
+int a = 0,i = 0;
+float b = 1.45;
+char c = 'd';
+char s[10] = "SJCE";
+x = (a > b)? a : b;
+(f = 123;
+5 = (12 > 10)? 12: 10; 
+ptr -> info = (a.x + b.x)%100;
+ptr -> mark = (ptr[1] -> mark);
+a != b;
+x = ( a,c);
+a := x;
+ptr <- node = 123;
+
+endf

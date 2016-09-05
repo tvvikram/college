@@ -1,0 +1,142 @@
+\documentclass[10pt, oneside, a4paper]{article}
+\usepackage{ifpdf}
+\usepackage{graphicx}
+\usepackage[colorlinks,bookmarksopen,linkcolor=black,pdfauthor={Vikram},urlcolor=blue]{hyperref}
+\usepackage[colorlinks,bookmarksopen]{hyperref}
+\usepackage[hmargin=1.5cm,vmargin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\begin{document}
+\begin{center}
+\textbf{VISVESWARAYA TECHNOLOGICAL UNIVERSITY}
+\end{center}
+\begin{center}
+\textbf{BELGAUM}\\
+\thispagestyle{empty}
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+\includegraphics[scale=0.50]{vtu.png}
+\else
+\fi
+\end{center}
+\end{figure}
+\textbf{SRI JAYACHAMARAJENDRA COLLEGE OF ENGINEERING}
+\textbf{MYSORE-570006}\\
+\textsc{department of computer science and engineering}
+\end{center}
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+\includegraphics[scale=0.30]{./logo.png}
+\else
+\fi
+\end{center}
+\end{figure}
+\begin{center}
+\textbf{\underline{Report on}}\\
+\textsc{\\IMPLEMENTATION OF STATIC SINGLE-ASSIGNMENT (SSA) FORM\\}
+\vspace{1in}
+\textbf{\underline{Done By:}}\\
+\textsc{\\VIKRAM T.V.}\\
+4th Semester,\\ Computer Science and Engineering,\\
+S.J.C.E, Mysore\\
+\title {IMPLEMENTATION OF STATIC SINGLE-ASSIGNMENT (SSA) FORM\\}
+\end{center}
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+
+\twocolumn
+\section{Introduction}
+Data flow analysis needs the \emph{def-use} chain to find the use-sites of each defined variable or the def-sites of each variable used in an expression.  An improvement on the idea of def-use chains is \emph{static single-assignment form}, or SSA form, which is an intermediate form in which each variable has only one definition in the program text.  The static definition-site may be in a loop that is executed many times, thus the name - static single assignment form, where the variables are never redefined.  Some of the advantages of using SSA form are: optimizations and dataflow analysis becomes simpler, space complexity reduces compared to def-use chains and unrelated uses of same variable (inside a loop) in source program become different in SSA form, eliminating needless relationships.
+
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.50]{./straightLineProgram.png}
+\else
+%	\includegraphics[scale=0.50]{./straightLineProgram.png}
+\fi
+\caption{A straight line program}
+\label{fig:1}
+\end{center}
+\end{figure}
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.50]{./programInSSa.png}
+\else
+%	\includegraphics[scale=0.50]{./programInSSa.png}
+\fi
+\caption{Program in SSA form}
+\label{fig:2}
+\end{center}
+\end{figure}
+
+Figure 1 shows a straight line program and figure 2 shows the corresponding program in SSA form.  When two control flow paths merge together, with each path having a definition of \emph{a} as \emph{a1} (across left path) and \emph{a2} (across right path), it is essential to have only one definition of \emph{a} at the merge point to have the program in SSA form.  A new definition of \emph{a}, say \emph{a3}, is defined at the merged point which is the result of $\phi$-function.  Thus the statement \emph{a3} $\leftarrow$ $\phi$(\emph{a1}, \emph{a2}) defines \emph{a3} with \emph{a1}, if the control flow was through left path, or with \emph{a2} if control flow took right path.  The $\phi$ functions are eliminated before generating executable by placing MOVE instructions on each incoming edge with corresponding definitions.  Figure 3 shows an example of $\phi$ placement for the variable t13.
+
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.50]{./ssaExample.png}
+\else
+%	\includegraphics[scale=0.50]{./ssaExample.png}
+\fi
+\caption{Phi placement}
+\label{fig:3}
+\end{center}
+\end{figure}
+
+\section{Converting to SSA Form}
+Converting a program to SSA form involves 4 stages: creating dominators for each basic block,  find the places where $\phi$ functions have to be placed, placing of $\phi$ functions and finally renaming of uses and definitions of variables.  The input program is the intermediate representation represented using basic blocks and control flow graph.
+
+\subsection{Dominators}
+The dominators for the basic blocks of the input program are calculated using the Lenguer-Tarjan algorithm.  An immediate dominator is found for each of the nodes.  This is used to find places needed for $\phi$ placement.
+
+\subsection{The Dominance Frontier}
+Finding places for $\phi$ placement can be calculated iteratively.  The criterion for this is to find a blocks \emph{x} and \emph{y} (with \emph{x} $\neq$ \emph{y}) containing definitions of \emph{a}.  A $\phi$ function should be at node \emph{z}, if there are non-empty paths P$_\emph{x}$$_\emph{z}$ and P$_\emph{y}$$_\emph{z}$ and both paths do not have any node in common other than \emph{z}.  Also node \emph{z} does not appear within both paths.  But we can use the dominance properties on SSA form to find a better method of placing $\phi$ functions, known as the Dominance Frontier criterion, which relies on following properties:
+\begin{itemize}
+\item If \emph{x} is used in a $\phi$-function in block \emph{n}, then the definition of \emph{x} dominates every predecessor of \emph{n}.
+\item If \emph{x} is used in a non-$\phi$-statement in block \emph{n}, then the definition of \emph{x} dominates \emph{n}.
+\end{itemize}
+
+The dominance frontier is calculated using the dominator tree of the flow graph.  \emph{x strictly dominates w} if \emph{x} dominates \emph{w} and \emph{x} $\neq$ \emph{w}.  A dominance frontier of a node \emph{x} is the set of all nodes \emph{w} such that \emph{x} dominates a predecessor of \emph{w}, but does not strictly dominate \emph{w}.  A dominance frontier of a node is the border between the dominated and undominated nodes, and it is here the $\phi$-functions have to be placed.  Hence, the criterion is: whenever node \emph{x} contains a definition of some variable \emph{a}, then any node \emph{z} in the dominance frontier of \emph{x} needs a $\phi$-function for \emph{a}.
+
+\textbf{Computing the dominance frontier}:  To insert all the necessary $\phi$-functions, for every node \emph{n} in the flow graph, DF[n] is needed, its dominance frontier, which can be computed efficiently in one pass using the dominator tree.  The following sets are used:\\
+\begin{itemize}
+\item DF$_local$[n]:  The successors of \emph{n} that are not strictly dominated by \emph{n}.
+\item DF$_up$[n]:  Nodes in the dominance frontier of \emph{n} that are not strictly dominated by \emph{n}'s immediate dominator.
+\end{itemize}
+
+The dominance frontier of \emph{n} can be computed from DF$_local$ and DF$_up$:\\
+DF[n] = DF$_local$[n] $\bigcup$ $\cup$$_c$$_=$$_children[n]$ DF$_up$[\emph{c}]\\
+where children[n] are the nodes whose immediate dominator is \emph{n}.  Using immediate dominators DF$_local$[n] is calculated as the set of those successors of \emph{n} whose immediate dominator is not \emph{n}.  A pseudocode to compute DFn is given in Algorithm 1.  Its complexity is proportional to the number of edges of the original graph plus the size of the dominance frontiers it computes.  But practically, the control flow graphs for the programs are not that complex and hence this psuedocode runs in linear time.
+
+\subsection{Inserting $\phi$-functions}
+A pseudocode for inserting $\phi$-functions is shown in Algorithm 2.  It uses worklists to avoid reexamining of nodes where no $\phi$-function has been inserted.  First the definition sites of the variables in each block is computed.  A$_orig$[n] contains the variable definitions at node \emph{n}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage 
+\begin{thebibliography}{10}
+\bibitem {appel}{appel} andrew w. appel, \emph{modern compiler implementation in c}, Revised Edition, Cambridge University Press, 2008
+\end{thebibliography}
+
+\end{document}

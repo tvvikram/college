@@ -1,0 +1,58 @@
+\documentclass[11pt, oneside, a4paper]{article}
+\usepackage{ifpdf}
+\usepackage{graphicx}
+\usepackage[colorlinks,bookmarksopen,linkcolor=black,pdfauthor={Vikram},urlcolor=blue]{hyperref}
+\usepackage[colorlinks,bookmarksopen]{hyperref}
+\usepackage[hmargin=1.5cm,vmargin=2.5cm]{geometry}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\begin{document}
+\begin{center}
+\textbf{VISVESWARAYA TECHNOLOGICAL UNIVERSITY}
+\end{center}
+\begin{center}
+\textbf{BELGAUM}\\
+\thispagestyle{empty}
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+\includegraphics[scale=0.50]{vtu.png}
+\else
+\fi
+\end{center}
+\end{figure}
+\textbf{SRI JAYACHAMARAJENDRA COLLEGE OF ENGINEERING}
+\textbf{MYSORE-570006}\\
+\textsc{department of computer science and engineering}
+\end{center}
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+\includegraphics[scale=0.30]{./logo.png}
+\else
+\fi
+\end{center}
+\end{figure}
+\begin{center}
+\textbf{\underline{Report on}}\\
+\textsc{\\IMPLEMENTATION OF LENGAUER-TARJAN ALGORITHM TO GENERATE DOMINATORS FOR NODES OF A RANDOM GRAPH\\}
+\vspace{1in}
+\textbf{\underline{Done By:}}\\
+\textsc{\\VIKRAM T.V.}\\
+4th Semester,\\ Computer Science and Engineering,\\
+S.J.C.E, Mysore\\
+\title {IMPLEMENTATION OF LENGAUER-TARJAN ALGORITHM TO GENERATE DOMINATORS FOR NODES OF A RANDOM GRAPH\\}
+\end{center}
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+
+
+\newpage 
+\begin{thebibliography}{10}
+\bibitem{}
+\end{thebibliography}
+
+\end{document}

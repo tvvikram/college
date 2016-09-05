@@ -1,0 +1,95 @@
+\documentclass[10pt, oneside, a4paper]{article}
+\usepackage{ifpdf}
+\usepackage{graphicx}
+\usepackage[colorlinks,bookmarksopen]{hyperref}
+\begin{document}
+\begin{center}
+
+\thispagestyle{empty}
+\textbf{Sri Jayachamarajendra College of Engineering, Mysore - 570006 \\}
+\textbf{\\Department of Computer Science and Engineering}
+\vspace{.5in}
+
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+\includegraphics[scale=0.50]{./logo.png}
+\else
+\fi
+\end{center}
+\end{figure}
+\vspace{.5in}
+Test Plans for \\
+\textbf{\underline{Telephone Bill Generation Software for Telecom District}} \\
+\vspace{.25in}
+Dec 2009
+
+\vspace{1in}
+
+THE TEAM \\
+
+\vspace{.1in}
+\begin{tabular}{|c|c|c|}
+\hline
+%% row 1
+ Name
+& Roll Number  
+& USN
+\\\hline
+%% row 2
+Vikram TV 
+& 59
+& 4JC07CS120
+\\\hline
+%% row 3
+Prabhakar Gouda
+& 35
+& 4JC07CS070
+\\\hline
+%% row 4
+Sharad D
+& 03
+& 4JC06CS089
+\\\hline
+\end{tabular}
+\\ **5th Semester 'B' Section
+\end{center}
+\newpage
+
+
+\section{Test Plan}
+The following are Tests are to be conducted after implementation of TellBill. 
+
+
+\subsection{Acceptance Test Plan}
+\begin{itemize}
+\item Test for length of username and minimum password length
+\item Test if password has been encrypted properly.
+\item Test for valid User and Password.
+\item Only Admin can change contact details.
+\item Test for Bill Number is Uniquely Assigned to each bill.
+\item Test for valid Pincode, length of pincode
+\item Test for SQL injection.
+\item Test that a bill is generated for each phone connection every month.
+\item Check if bill payment is regular.
+
+\end{itemize}
+
+
+
+\subsection{System Integration Test Plan}
+The binding between the modules are to be checked based on foreign key referenciations.\\
+\begin{itemize}
+\item	The auto incremented unique Customer ID are to be tested for updation in all tables that referes to Customer ID. 
+\item Deletion of a Customer from Customer Table should lead to \emph{cascaded deletion} of Customer IDs in other tables.
+\item Test that a new connection reflects in module Bill and module Payment.
+\item Check that call durations and meter readings are never negative.
+\item Check that change in Tariff plans does not have effect on older bills.
+\item Check that user is not charged for received calls.
+\item Test that net amount calculated in module Bill also gets reflected in module Payment of next month.
+\end{itemize}
+
+\section{Conclusion}
+	The above Test Plans are based on Software Requirement Specifications and Software Design Specifications of TelBill.
+	 Further test cases are to be evolved.
+\end{document}

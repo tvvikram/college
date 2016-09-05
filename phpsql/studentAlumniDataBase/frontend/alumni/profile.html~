@@ -1,0 +1,14 @@
+<html>
+	<head><title>Profile</title></head>
+	<body>
+	<?php
+		$getUsername = "select username, userpassword from login where username='$username' and userpassword='$password'";
+		$result = mysql_query($getUsername, $connection) or die("Could not execute query" .mysql_error());
+		$result = mysql_fetch_array($result);
+		echo "Username: $result[0]";
+		echo "<br />";
+		echo "Password: $result[1]";
+		echo "<br />";
+	?>	
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+	<head><title>Notes</title></head>
+	<body>
+		<br /><br /><br />
+		<div style="text-align: right">
+		<form method="post" action="viewNotes.php">
+			<input type="submit" value="View Archives"></input>
+		</form>		
+		</div>
+		<br /><br />
+		You can add some of your notes here...<br />
+		Notes heading:<br /><br />
+		<form method="post" action="insertNotes.php">
+			<input type="text" size="100" style="height: 30" name="heading"></input>
+			<br /><br />
+			Description:<br /><br />
+			<input type="textarea" size="100" style="height: 100" name="description"></input><br /><br />
+			<input type="submit" value="OK"></input>
+		</form>
+	<br /><br /><br />
+	<form method="post" action="updateProfile.php">
+		<input type="submit" value="Back"></input>	
+	</form>	
+	</body>
+</html>

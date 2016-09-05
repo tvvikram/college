@@ -1,0 +1,10 @@
+main()
+	a=b;
+	loop a<b
+		a++;
+	endl
+endf	
+endp
+a()
+	a =;
+endf

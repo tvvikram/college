@@ -1,0 +1,12 @@
+.
+./gencfg.c
+./dominator.c
+./verify.sh
+./filenames
+./main.c
+./header.h
+./Makefile
+./cfg.dat
+dominator.c
+gencfg.c
+main.c

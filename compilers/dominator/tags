@@ -1,0 +1,63 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+DOT_OUTPUT	./main.c	5;"	d	file:
+DOT_OUTPUT	main.c	5;"	d	file:
+HEADER_H	./header.h	2;"	d
+MAXIMUM_VERTICES	./header.h	4;"	d
+N	./dominator.c	/^int N = 0;$/;"	v
+N	dominator.c	/^int N = 0;$/;"	v
+NONE	./header.h	5;"	d
+UNVISITED	./header.h	9;"	d
+VISITED	./header.h	8;"	d
+ancestor	./dominator.c	/^int ancestor[MAXIMUM_VERTICES] = {};$/;"	v
+ancestor	dominator.c	/^int ancestor[MAXIMUM_VERTICES] = {};$/;"	v
+ancestorWithLowestSemidominator	./dominator.c	/^int ancestorWithLowestSemidominator (int v) {$/;"	f
+ancestorWithLowestSemidominator	dominator.c	/^int ancestorWithLowestSemidominator (int v) {$/;"	f
+buckets	./dominator.c	/^int buckets[MAXIMUM_VERTICES][MAXIMUM_VERTICES] = {};$/;"	v
+buckets	dominator.c	/^int buckets[MAXIMUM_VERTICES][MAXIMUM_VERTICES] = {};$/;"	v
+build_dominator_tree	./dominator.c	/^int build_dominator_tree (int cfg[][MAXIMUM_VERTICES], int idominator[], int no_of_vertices) {$/;"	f
+build_dominator_tree	dominator.c	/^int build_dominator_tree (int cfg[][MAXIMUM_VERTICES], int idominator[], int no_of_vertices) {$/;"	f
+compare_output	./main.c	/^int compare_output (int idominator1[], int idominator2[], int no_of_vertices) {$/;"	f
+compare_output	main.c	/^int compare_output (int idominator1[], int idominator2[], int no_of_vertices) {$/;"	f
+dfnum	./dominator.c	/^int dfnum[MAXIMUM_VERTICES] = {};$/;"	v
+dfnum	dominator.c	/^int dfnum[MAXIMUM_VERTICES] = {};$/;"	v
+dfs	./dominator.c	/^static void dfs (int cfg[][MAXIMUM_VERTICES], int no_of_vertices, int p, int n) {$/;"	f	file:
+dfs	./gencfg.c	/^static void dfs (int cfg[][MAXIMUM_VERTICES], int wrt, int no_of_vertices) {$/;"	f	file:
+dfs	dominator.c	/^static void dfs (int cfg[][MAXIMUM_VERTICES], int no_of_vertices, int p, int n) {$/;"	f	file:
+dfs	gencfg.c	/^static void dfs (int cfg[][MAXIMUM_VERTICES], int wrt, int no_of_vertices) {$/;"	f	file:
+dfs_counter	./gencfg.c	/^static int dfs_number[MAXIMUM_VERTICES] = {}, dfs_counter = 0; $/;"	v	file:
+dfs_counter	gencfg.c	/^static int dfs_number[MAXIMUM_VERTICES] = {}, dfs_counter = 0; $/;"	v	file:
+dfs_number	./gencfg.c	/^static int dfs_number[MAXIMUM_VERTICES] = {}, dfs_counter = 0; $/;"	v	file:
+dfs_number	gencfg.c	/^static int dfs_number[MAXIMUM_VERTICES] = {}, dfs_counter = 0; $/;"	v	file:
+dfs_tree	./gencfg.c	/^char leaves[MAXIMUM_VERTICES], dfs_tree[MAXIMUM_VERTICES][MAXIMUM_VERTICES] = {};$/;"	v
+dfs_tree	gencfg.c	/^char leaves[MAXIMUM_VERTICES], dfs_tree[MAXIMUM_VERTICES][MAXIMUM_VERTICES] = {};$/;"	v
+false	./header.h	7;"	d
+find_dominator	./gencfg.c	/^void find_dominator (int cfg[][MAXIMUM_VERTICES], int wrt, int no_of_vertices, int idominator[]) {$/;"	f
+find_dominator	gencfg.c	/^void find_dominator (int cfg[][MAXIMUM_VERTICES], int wrt, int no_of_vertices, int idominator[]) {$/;"	f
+generate_cfg	./gencfg.c	/^void generate_cfg (int cfg[][MAXIMUM_VERTICES], int no_of_vertices, int idominator[]) {$/;"	f
+generate_cfg	gencfg.c	/^void generate_cfg (int cfg[][MAXIMUM_VERTICES], int no_of_vertices, int idominator[]) {$/;"	f
+leaves	./gencfg.c	/^char leaves[MAXIMUM_VERTICES], dfs_tree[MAXIMUM_VERTICES][MAXIMUM_VERTICES] = {};$/;"	v
+leaves	gencfg.c	/^char leaves[MAXIMUM_VERTICES], dfs_tree[MAXIMUM_VERTICES][MAXIMUM_VERTICES] = {};$/;"	v
+link	./dominator.c	/^void link(int p, int n)	{$/;"	f
+link	dominator.c	/^void link(int p, int n)	{$/;"	f
+main	./main.c	/^int main (int argc, char **argv) {$/;"	f
+main	main.c	/^int main (int argc, char **argv) {$/;"	f
+parent	./dominator.c	/^int parent[MAXIMUM_VERTICES] = {};$/;"	v
+parent	dominator.c	/^int parent[MAXIMUM_VERTICES] = {};$/;"	v
+print_cfg	./main.c	/^void print_cfg (int cfg[][MAXIMUM_VERTICES], int no_of_vertices) {$/;"	f
+print_cfg	main.c	/^void print_cfg (int cfg[][MAXIMUM_VERTICES], int no_of_vertices) {$/;"	f
+print_dot_input	./main.c	/^void print_dot_input (int cfg[][MAXIMUM_VERTICES], int no_of_vertices, const char *name, FILE *fp) {$/;"	f
+print_dot_input	main.c	/^void print_dot_input (int cfg[][MAXIMUM_VERTICES], int no_of_vertices, const char *name, FILE *fp) {$/;"	f
+print_dot_output	./main.c	/^void print_dot_output (int idominator[], int no_of_vertices, const char *name, FILE *fp) {$/;"	f
+print_dot_output	main.c	/^void print_dot_output (int idominator[], int no_of_vertices, const char *name, FILE *fp) {$/;"	f
+samedom	./dominator.c	/^int samedom[MAXIMUM_VERTICES] = {};$/;"	v
+samedom	dominator.c	/^int samedom[MAXIMUM_VERTICES] = {};$/;"	v
+semi	./dominator.c	/^int semi[MAXIMUM_VERTICES] = {};$/;"	v
+semi	dominator.c	/^int semi[MAXIMUM_VERTICES] = {};$/;"	v
+true	./header.h	6;"	d
+vertex	./dominator.c	/^int vertex[MAXIMUM_VERTICES] = {};$/;"	v
+vertex	dominator.c	/^int vertex[MAXIMUM_VERTICES] = {};$/;"	v

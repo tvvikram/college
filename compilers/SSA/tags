@@ -1,0 +1,113 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+DF	./header.h	/^int DF[NO_OF_NODES][NO_OF_NODES];$/;"	v
+DOT_OUTPUT	./dominator.main.c	6;"	d	file:
+DOT_OUTPUT	dominator.main.c	6;"	d	file:
+EXPANDED_SIZE	./header.h	6;"	d
+HEADER_H	./dominator.header.h	2;"	d
+MAXIMUM_VERTICES	./dominator.header.h	4;"	d
+MAX_DEPTH	./genir.h	3;"	d
+N	./dominator.c	/^int N = 0;	\/\/ index$/;"	v
+N	dominator.c	/^int N = 0;	\/\/ index$/;"	v
+NEST_SIZE_MAX	./genir.h	4;"	d
+NEST_SIZE_MIN	./genir.h	5;"	d
+NONE	./dominator.header.h	5;"	d
+NO_OF_NODES	./header.h	5;"	d
+NO_OF_VARIABLES	./header.h	4;"	d
+NO_OF_VARIABLES_IN_A_BLOCK	./header.h	3;"	d
+STACK_SIZE	./rename.c	4;"	d	file:
+STACK_SIZE	rename.c	4;"	d	file:
+UNVISITED	./dominator.header.h	9;"	d
+VISITED	./dominator.header.h	8;"	d
+aOrig	./header.h	/^int aOrig[NO_OF_NODES][NO_OF_VARIABLES_IN_A_BLOCK];$/;"	v
+aPHI	./header.h	/^int aPHI[NO_OF_NODES][NO_OF_VARIABLES];$/;"	v
+aPHIstatements	./header.h	/^int aPHIstatements[NO_OF_NODES][NO_OF_VARIABLES][NO_OF_NODES * 2];$/;"	v
+ancestor	./header.h	/^int ancestor[NO_OF_NODES];$/;"	v
+ancestorWithLowestSemidominator	./dominator.c	/^int ancestorWithLowestSemidominator (int v) {$/;"	f
+ancestorWithLowestSemidominator	dominator.c	/^int ancestorWithLowestSemidominator (int v) {$/;"	f
+basicBlock	./header.h	/^int basicBlock[NO_OF_NODES][NO_OF_VARIABLES_IN_A_BLOCK * EXPANDED_SIZE];$/;"	v
+buckets	./dominator.c	/^int buckets[MAXIMUM_VERTICES][MAXIMUM_VERTICES] = {};$/;"	v
+buckets	dominator.c	/^int buckets[MAXIMUM_VERTICES][MAXIMUM_VERTICES] = {};$/;"	v
+build_dominator_tree	./dominator.c	/^int build_dominator_tree (int cfg[][MAXIMUM_VERTICES], int idominator[], int no_of_vertices) {$/;"	f
+build_dominator_tree	dominator.c	/^int build_dominator_tree (int cfg[][MAXIMUM_VERTICES], int idominator[], int no_of_vertices) {$/;"	f
+cfg	./header.h	/^int cfg[NO_OF_NODES][NO_OF_NODES];$/;"	v
+compare_output	./dominator.main.c	/^int compare_output (int idominator1[], int idominator2[], int no_of_vertices) {$/;"	f
+compare_output	dominator.main.c	/^int compare_output (int idominator1[], int idominator2[], int no_of_vertices) {$/;"	f
+computeDFn	./dfn.c	/^void computeDFn(int n)	{$/;"	f
+computeDFn	dfn.c	/^void computeDFn(int n)	{$/;"	f
+count	./rename.c	/^int count[NO_OF_VARIABLES] = {};$/;"	v
+count	rename.c	/^int count[NO_OF_VARIABLES] = {};$/;"	v
+defSites	./phi.c	/^int defSites[NO_OF_VARIABLES][NO_OF_NODES];$/;"	v
+defSites	phi.c	/^int defSites[NO_OF_VARIABLES][NO_OF_NODES];$/;"	v
+dfnum	./header.h	/^int dfnum[NO_OF_NODES];$/;"	v
+dfs	./dominator.c	/^static void dfs (int cfg[][MAXIMUM_VERTICES], int no_of_vertices, int p, int n) {$/;"	f	file:
+dfs	dominator.c	/^static void dfs (int cfg[][MAXIMUM_VERTICES], int no_of_vertices, int p, int n) {$/;"	f	file:
+dispAPhi	./phi.c	/^int dispAPhi()	{$/;"	f
+dispAPhi	phi.c	/^int dispAPhi()	{$/;"	f
+dispBasicBlock	./genir.c	/^int dispBasicBlock()	{$/;"	f
+dispBasicBlock	genir.c	/^int dispBasicBlock()	{$/;"	f
+dispDFn	./dfn.c	/^int dispDFn()	{$/;"	f
+dispDFn	dfn.c	/^int dispDFn()	{$/;"	f
+dispDefSites	./phi.c	/^int dispDefSites()	{$/;"	f
+dispDefSites	phi.c	/^int dispDefSites()	{$/;"	f
+dispIDominator	./dominator.main.c	/^int dispIDominator()$/;"	f
+dispIDominator	dominator.main.c	/^int dispIDominator()$/;"	f
+dispInDotty	./main.c	/^void dispInDotty(FILE *fp, char *name)	{$/;"	f
+dispInDotty	main.c	/^void dispInDotty(FILE *fp, char *name)	{$/;"	f
+false	./dominator.header.h	7;"	d
+genir_random	./genir.c	/^void genir_random (int current_depth, int required_generations, int blockNo)	{$/;"	f
+genir_random	genir.c	/^void genir_random (int current_depth, int required_generations, int blockNo)	{$/;"	f
+idominator	./header.h	/^int idominator[NO_OF_NODES];$/;"	v
+ifIndex	./genir.c	/^int ifStack[100] = {}, ifIndex = 0, loopStack[100] = {}, loopIndex = 0, maxIfIndex, maxLoopIndex;$/;"	v
+ifIndex	genir.c	/^int ifStack[100] = {}, ifIndex = 0, loopStack[100] = {}, loopIndex = 0, maxIfIndex, maxLoopIndex;$/;"	v
+ifStack	./genir.c	/^int ifStack[100] = {}, ifIndex = 0, loopStack[100] = {}, loopIndex = 0, maxIfIndex, maxLoopIndex;$/;"	v
+ifStack	genir.c	/^int ifStack[100] = {}, ifIndex = 0, loopStack[100] = {}, loopIndex = 0, maxIfIndex, maxLoopIndex;$/;"	v
+initializeRenameStacks	./rename.c	/^void initializeRenameStacks()	{$/;"	f
+initializeRenameStacks	rename.c	/^void initializeRenameStacks()	{$/;"	f
+insertToAOrig	./genir.c	/^int insertToAOrig(int blockNo, int variable)	{$/;"	f
+insertToAOrig	genir.c	/^int insertToAOrig(int blockNo, int variable)	{$/;"	f
+insertToBasicBlock	./genir.c	/^int insertToBasicBlock(int blockNo, int variable)	{$/;"	f
+insertToBasicBlock	genir.c	/^int insertToBasicBlock(int blockNo, int variable)	{$/;"	f
+label_count	./genir.c	/^static int label_count = 1;$/;"	v	file:
+label_count	genir.c	/^static int label_count = 1;$/;"	v	file:
+link	./dominator.c	/^void link(int p, int n)	{$/;"	f
+link	dominator.c	/^void link(int p, int n)	{$/;"	f
+loopIndex	./genir.c	/^int ifStack[100] = {}, ifIndex = 0, loopStack[100] = {}, loopIndex = 0, maxIfIndex, maxLoopIndex;$/;"	v
+loopIndex	genir.c	/^int ifStack[100] = {}, ifIndex = 0, loopStack[100] = {}, loopIndex = 0, maxIfIndex, maxLoopIndex;$/;"	v
+loopStack	./genir.c	/^int ifStack[100] = {}, ifIndex = 0, loopStack[100] = {}, loopIndex = 0, maxIfIndex, maxLoopIndex;$/;"	v
+loopStack	genir.c	/^int ifStack[100] = {}, ifIndex = 0, loopStack[100] = {}, loopIndex = 0, maxIfIndex, maxLoopIndex;$/;"	v
+main	./main.c	/^int main (int argc, char *argv[])	{$/;"	f
+main	main.c	/^int main (int argc, char *argv[])	{$/;"	f
+mainDominator	./dominator.main.c	/^int mainDominator (int no_of_vertices, int cfg[][MAXIMUM_VERTICES], int idominator[MAXIMUM_VERTICES]) {$/;"	f
+mainDominator	dominator.main.c	/^int mainDominator (int no_of_vertices, int cfg[][MAXIMUM_VERTICES], int idominator[MAXIMUM_VERTICES]) {$/;"	f
+maxIfIndex	./genir.c	/^int ifStack[100] = {}, ifIndex = 0, loopStack[100] = {}, loopIndex = 0, maxIfIndex, maxLoopIndex;$/;"	v
+maxIfIndex	genir.c	/^int ifStack[100] = {}, ifIndex = 0, loopStack[100] = {}, loopIndex = 0, maxIfIndex, maxLoopIndex;$/;"	v
+maxLoopIndex	./genir.c	/^int ifStack[100] = {}, ifIndex = 0, loopStack[100] = {}, loopIndex = 0, maxIfIndex, maxLoopIndex;$/;"	v
+maxLoopIndex	genir.c	/^int ifStack[100] = {}, ifIndex = 0, loopStack[100] = {}, loopIndex = 0, maxIfIndex, maxLoopIndex;$/;"	v
+parent	./header.h	/^int parent[NO_OF_NODES];$/;"	v
+placePHIfunctions	./phi.c	/^void placePHIfunctions()	{$/;"	f
+placePHIfunctions	phi.c	/^void placePHIfunctions()	{$/;"	f
+pop	./rename.c	/^int pop(int variable)	{$/;"	f
+pop	rename.c	/^int pop(int variable)	{$/;"	f
+print_cfg	./dominator.main.c	/^void print_cfg (int cfg[][MAXIMUM_VERTICES], int no_of_vertices) {$/;"	f
+print_cfg	dominator.main.c	/^void print_cfg (int cfg[][MAXIMUM_VERTICES], int no_of_vertices) {$/;"	f
+print_dot_input	./dominator.main.c	/^void print_dot_input (int cfg[][MAXIMUM_VERTICES], int no_of_vertices, const char *name, FILE *fp) {$/;"	f
+print_dot_input	dominator.main.c	/^void print_dot_input (int cfg[][MAXIMUM_VERTICES], int no_of_vertices, const char *name, FILE *fp) {$/;"	f
+print_dot_output	./dominator.main.c	/^void print_dot_output (int idominator[], int no_of_vertices, const char *name, FILE *fp) {$/;"	f
+print_dot_output	dominator.main.c	/^void print_dot_output (int idominator[], int no_of_vertices, const char *name, FILE *fp) {$/;"	f
+push	./rename.c	/^void push(int variable, int value)	{$/;"	f
+push	rename.c	/^void push(int variable, int value)	{$/;"	f
+renameVariables	./rename.c	/^void renameVariables(int n)	{$/;"	f
+renameVariables	rename.c	/^void renameVariables(int n)	{$/;"	f
+samedom	./header.h	/^int samedom[NO_OF_NODES];$/;"	v
+semi	./header.h	/^int semi[NO_OF_NODES];$/;"	v
+stack	./rename.c	/^int stack[NO_OF_VARIABLES][STACK_SIZE];$/;"	v
+stack	rename.c	/^int stack[NO_OF_VARIABLES][STACK_SIZE];$/;"	v
+top	./rename.c	/^int top(int variable)	{$/;"	f
+top	rename.c	/^int top(int variable)	{$/;"	f
+true	./dominator.header.h	6;"	d
+vertex	./header.h	/^int vertex[NO_OF_NODES];$/;"	v

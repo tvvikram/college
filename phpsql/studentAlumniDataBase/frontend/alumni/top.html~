@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>HTML Frames Example - Menu 1</title>
+<style type="text/css">
+body {
+	font-family:verdana,arial,sans-serif;
+	font-size:10pt;
+	margin:10px;
+	background-color:#ff9980;
+	}
+</style>
+</head>
+<body background="back.gif">
+	<center><font size="2"><strong><h1><span style="color: blue">Stude</span><span style="color: red">nt Al</span><span style="color: brown">umni </span><span style="color: blue">Data</span><span style="color: green">Base</span></h1></strong></font></center>
+</body>

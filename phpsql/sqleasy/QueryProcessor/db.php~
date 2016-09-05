@@ -1,0 +1,30 @@
+<html>
+	<head><title>Databases</title></head>
+	<body>
+		Databases are:<br />
+
+<?php
+	$user = $_COOKIE['username'];
+	$password = $_COOKIE['password'];
+	echo "User : $user.";
+?>
+		
+		<?php
+				@$connection = mysql_connect("localhost", "$user", "$password") or die("Could not connect to server...  " .mysql_error());
+				$query = "show databases";
+				$result = mysql_query($query, $connection);
+				$num_of_rows = mysql_num_rows($result);
+			?>
+			
+			<form method="POST" action="database.php">
+		<?php
+				for ($i = 0; $i < $num_of_rows; $i = $i + 1)
+				{
+					$row = mysql_fetch_array($result); ?>
+					<br /><input type="submit" value="<?php echo $row[0] ?>" name="DB"> <tr /><br /><br />
+			<?php
+				}
+			?>	
+			</form>
+	</body>
+</html>

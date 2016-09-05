@@ -1,0 +1,48 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+DEBUG	./rbt.autoInsDel.c	4;"	d	file:
+DEBUG	rbt.autoInsDel.c	4;"	d	file:
+RBT	./rbt.genOp.h	/^typedef struct rbt *RBT;$/;"	t	typeref:struct:rbt
+RBT	./rbt.main.c	/^typedef struct rbt * RBT;$/;"	t	typeref:struct:rbt	file:
+RBT	rbt.main.c	/^typedef struct rbt * RBT;$/;"	t	typeref:struct:rbt	file:
+autodel	./rbt.randomInsDel.c	/^RBT autodel(RBT t, int m)$/;"	f
+autodel	rbt.randomInsDel.c	/^RBT autodel(RBT t, int m)$/;"	f
+autodelRoot	./rbt.autoInsDel.c	/^RBT autodelRoot(RBT t, int m)$/;"	f
+autodelRoot	rbt.autoInsDel.c	/^RBT autodelRoot(RBT t, int m)$/;"	f
+color	./rbt.genOp.h	/^	char color;	\/\/ B - black, R - red$/;"	m	struct:rbt
+count	./rbt.autoInsDel.c	/^int count = 0;$/;"	v
+count	./rbt.genOp.h	/^	int info, count;$/;"	m	struct:rbt
+count	rbt.autoInsDel.c	/^int count = 0;$/;"	v
+countTraverse	./rbt.randomInsDel.c	/^int countTraverse;$/;"	v
+countTraverse	rbt.randomInsDel.c	/^int countTraverse;$/;"	v
+dispInDotty	./rbt.genOp.h	/^void dispInDotty(RBT t, FILE *fp)$/;"	f
+dispTree	./rbt.genOp.h	/^void dispTree(RBT T)$/;"	f
+genRandRBT	./rbt.autoInsDel.c	/^RBT genRandRBT(RBT t, int n)$/;"	f
+genRandRBT	rbt.autoInsDel.c	/^RBT genRandRBT(RBT t, int n)$/;"	f
+getrbnode	./rbt.insDel.h	/^RBT getrbnode()$/;"	f
+info	./rbt.genOp.h	/^	int info, count;$/;"	m	struct:rbt
+leftRotate	./rbt.genOp.h	/^RBT leftRotate(RBT T, RBT x)			$/;"	f
+llink	./rbt.genOp.h	/^	struct rbt *llink, *rlink, *plink;	\/\/ left, right and parent links$/;"	m	struct:rbt	typeref:struct:rbt::rbt
+main	./rbt.main.c	/^int main(int argc, char **argv)$/;"	f
+main	rbt.main.c	/^int main(int argc, char **argv)$/;"	f
+maximum	./rbt.genOp.h	/^RBT maximum(RBT t)$/;"	f
+minimum	./rbt.genOp.h	/^RBT minimum(RBT t)$/;"	f
+nTraverse	./rbt.randomInsDel.c	/^RBT nTraverse(RBT t, int n)$/;"	f
+nTraverse	rbt.randomInsDel.c	/^RBT nTraverse(RBT t, int n)$/;"	f
+plink	./rbt.genOp.h	/^	struct rbt *llink, *rlink, *plink;	\/\/ left, right and parent links$/;"	m	struct:rbt	typeref:struct:rbt::
+predecessor	./rbt.genOp.h	/^RBT predecessor(RBT x)$/;"	f
+randomInsert	./rbt.randomInsDel.c	/^RBT randomInsert(RBT t)$/;"	f
+randomInsert	rbt.randomInsDel.c	/^RBT randomInsert(RBT t)$/;"	f
+rbDelete	./rbt.insDel.h	/^RBT rbDelete(RBT t, RBT z)							\/\/ similar to BST deletion$/;"	f
+rbDeleteFixUp	./rbt.insDel.h	/^RBT rbDeleteFixUp(RBT t, RBT x)						\/\/ x was child of the spliced out node$/;"	f
+rbInsert	./rbt.insDel.h	/^RBT rbInsert(RBT T, RBT z)					\/\/ same as BST insertion$/;"	f
+rbInsertFixup	./rbt.insDel.h	/^RBT rbInsertFixup(RBT T, RBT z)								\/\/ z is the node just inserted and is red$/;"	f
+rbt	./rbt.genOp.h	/^struct rbt$/;"	s
+rightRotate	./rbt.genOp.h	/^RBT rightRotate(RBT T, RBT x)			$/;"	f
+rlink	./rbt.genOp.h	/^	struct rbt *llink, *rlink, *plink;	\/\/ left, right and parent links$/;"	m	struct:rbt	typeref:struct:rbt::
+search	./rbt.genOp.h	/^RBT search(RBT t, int key)$/;"	f
+successor	./rbt.genOp.h	/^RBT successor(RBT x)$/;"	f

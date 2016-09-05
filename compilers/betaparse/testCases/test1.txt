@@ -1,0 +1,12 @@
+include info
+main()
+	loop abc <= xyz
+	ptr = 100, 	a +=100;
+	100 = abc;
+	endl
+test p != 100
+	x = ((a>b)a:b);
+	b << a;
+	endt
+endp
+

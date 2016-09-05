@@ -1,0 +1,5 @@
+if (a > b)
+	a = a-b* c/d-e*f/e*j+r;
+else
+	b = a + c;
+

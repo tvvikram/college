@@ -1,0 +1,25 @@
+\BOOKMARK [1][]{section.1}{Introduction}{}
+\BOOKMARK [2][]{subsection.1.1}{Purpose}{section.1}
+\BOOKMARK [2][]{subsection.1.2}{Scope}{section.1}
+\BOOKMARK [2][]{subsection.1.3}{Glossary}{section.1}
+\BOOKMARK [2][]{subsection.1.4}{References}{section.1}
+\BOOKMARK [1][]{section.2}{Software Lifecycle}{}
+\BOOKMARK [1][]{section.3}{Architectural Design}{}
+\BOOKMARK [2][]{subsection.3.1}{Overall System Organisation being Shared Data Repository}{section.3}
+\BOOKMARK [2][]{subsection.3.2}{Creation of Modules}{section.3}
+\BOOKMARK [2][]{subsection.3.3}{Cohesion of Modules}{section.3}
+\BOOKMARK [1][]{section.4}{Detailed Design}{}
+\BOOKMARK [2][]{subsection.4.1}{Data types specifying the attributes}{section.4}
+\BOOKMARK [3][]{subsubsection.4.1.1}{Module Customer}{subsection.4.1}
+\BOOKMARK [3][]{subsubsection.4.1.2}{Module Login}{subsection.4.1}
+\BOOKMARK [3][]{subsubsection.4.1.3}{Module Address}{subsection.4.1}
+\BOOKMARK [3][]{subsubsection.4.1.4}{Module Tariff}{subsection.4.1}
+\BOOKMARK [3][]{subsubsection.4.1.5}{Module Phone Number}{subsection.4.1}
+\BOOKMARK [3][]{subsubsection.4.1.6}{Module Call Logs}{subsection.4.1}
+\BOOKMARK [3][]{subsubsection.4.1.7}{Module Meter Reading}{subsection.4.1}
+\BOOKMARK [3][]{subsubsection.4.1.8}{Module Bill}{subsection.4.1}
+\BOOKMARK [3][]{subsubsection.4.1.9}{Module Payment}{subsection.4.1}
+\BOOKMARK [2][]{subsection.4.2}{Sequence diagram for Data Collection}{section.4}
+\BOOKMARK [1][]{section.5}{User Interface Design}{}
+\BOOKMARK [1][]{section.6}{Limitations}{}
+\BOOKMARK [1][]{section.7}{Conclusion}{}

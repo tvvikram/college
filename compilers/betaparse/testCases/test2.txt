@@ -1,0 +1,19 @@
+include beta
+macro a
+	acd = asd;
+	a = (c + d);
+	endm
+printf( a,b)
+	printf(a, b);
+	endf
+abc( a)
+	print(a,b);
+	test a == b
+		c = a;
+		otherwise
+		d = 0;
+	endt
+	c = a + b - d;
+endf
+
+endp

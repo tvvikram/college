@@ -1,0 +1,13 @@
+<?php
+	$user = $_POST['user'];
+	$password = $_POST['password'];
+	setcookie("username", $user, false, "/", false);
+	setcookie("password", $password, false, "/", false);
+?>
+
+<html>
+	<head><title>Front</title></head>
+	<body bgcolor='white'>
+	
+	To insert a new database click <a href:insertTuple.php>here</a>.
+	</body></html>

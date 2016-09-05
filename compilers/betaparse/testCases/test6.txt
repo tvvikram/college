@@ -1,0 +1,32 @@
+include stdio
+macro hello a=b;endm
+main (a, b)
+	test a>b
+		a=b;
+		loop a > bv
+			s+;
+			a = b + c;
+			a();
+		endl
+	otherwise
+		c=d1;
+		h=4;
+		loop a>b
+			a++;
+			b--;
+		endl
+	endt
+	loop a>b 
+		from a=b; step a=2;
+		s++;
+		x = 10;
+	endl
+endf
+print (Hello,Hi)
+	a = c+;
+	a = b +c ;
+endf
+scan (Hello,Hi)
+	a = b +c ;
+endf
+endp

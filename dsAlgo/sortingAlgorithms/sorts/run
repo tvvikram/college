@@ -1,0 +1,9 @@
+#!/bin/bash
+echo -e "Enter filename(sort to be run):\c";
+read flname
+filename=`expr "$flname" : '\(.*\).cpp'`		#Removes extension
+g++ $flname -o $filename.out
+./$filename.out
+gnuplot -persist <<EOF
+plot "$filename.dat" with lines
+make clean

@@ -1,0 +1,59 @@
+include stdio
+include myfile
+macro  hi   a = b; endm
+macro vikram a = b; endm
+
+ASD(sdD, ES)
+	a += b;
+	r = r + 2;
+	loop ase > ege
+	 from d = 3; step s = 3;
+		s++;
+		r--;
+	endl
+	sr = sr;
+endf
+
+include myfile
+include myfile
+
+a()
+	loop a<b
+		a++;
+		b--;
+	endl
+endf
+
+macro vikram a = b; endm
+
+b()
+	c++;
+	x=E;
+endf
+
+main(a, b)
+	a = b;
+	test a > b
+		s++;
+		test a > b
+			r+=r;
+		endt
+		otherwise
+		loop a > b	// xyz
+			r = r;
+			loop r < b
+				s--;
+			endl
+		endl
+	endt
+	test a == b
+		r--;
+	endt
+endf
+
+
+
+
+endp
+
+

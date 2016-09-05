@@ -1,0 +1,7 @@
+\BOOKMARK [1][]{section.1}{Introduction}{}
+\BOOKMARK [1][]{section.2}{Converting to SSA Form}{}
+\BOOKMARK [2][]{subsection.2.1}{Dominators}{section.2}
+\BOOKMARK [2][]{subsection.2.2}{The Dominance Frontier}{section.2}
+\BOOKMARK [2][]{subsection.2.3}{Inserting -functions}{section.2}
+\BOOKMARK [2][]{subsection.2.4}{Renaming the Variables}{section.2}
+\BOOKMARK [1][]{section.3}{Some examples}{}

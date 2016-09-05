@@ -1,0 +1,122 @@
+\documentclass[12pt, oneside, a4paper]{article}
+\usepackage{ifpdf}
+\usepackage{graphicx}
+\usepackage[colorlinks,bookmarksopen,linkcolor=black,pdfauthor={Sharad,Prabhakar,Vikram},urlcolor=blue]{hyperref}
+\usepackage[colorlinks,bookmarksopen]{hyperref}
+\begin{document}
+\begin{center}
+\textbf{VISVESWARAYA TECHNOLOGICAL UNIVERSITY}
+\end{center}
+\begin{center}
+\textbf{BELGAUM}\\
+\thispagestyle{empty}
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+	\includegraphics[scale=0.50]{vtu.png}
+\else
+%	\includegraphics[scale=0.50]{vtu.png}
+\fi
+\end{center}
+\end{figure}
+\textbf{SRI JAYACHAMARAJENDRA COLLEGE OF ENGINEERING}
+\textbf{MYSORE-570006}\\
+\textsc{department of computer science and engineering}
+\end{center}
+\begin{figure}[htb]
+\begin{center}
+\ifpdf
+\includegraphics[scale=0.30]{./logo.png}
+\else
+%	\includegraphics[scale=0.30]{/home/prabhakar/logo.odg}
+\fi
+\end{center}
+\end{figure}
+\begin{center}
+\textbf{\underline{Project on}}\\
+\textsc{IMPLEMENTATION OF SDT AND IR FOR $\beta$parse - A 'C' SUBSET (Part 2)\\}
+\emph{\\Guidance of}\\
+\textbf{P.M.SHIVMURTHY}\\
+\textit{Lecturer}\\
+\textit{Dept of CS$\&$E,SJCE Mysore.}\\
+\end{center}
+Team:
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+%% row 1
+\textsc{name}
+&\textsc{roll no}
+&\textsc{usn}
+\\\hline
+%% row 2
+\textsc{vikram tv}
+&61
+&\textsc{4jc07cs120}
+\\\hline
+%% row 3
+\textsc{prabhakar Gouda}
+&37
+&\textsc{4jc07cs070}
+\\\hline
+%% row 4
+\textsc{sharad d}
+&03
+&\textsc{4jc06cs089}
+\\\hline
+\end{tabular}
+\end{center}
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+
+\section{Overview}
+
+\paragraph{
+$\beta$ - parse language is the beta version of parsing of our own language.  It involves the best possibilities that we have seen from the classic language `C'.  Our language is purely a subset of the higher level language - 'C'.  It takes program written as per the rules and syntax of our language as input and validates the syntax of the program.  In case of any error in the program it display the line number in which the error is detected and possible type of error.  It also generates a parse tree for the user convenience.  This implementation is done in two phases - the lexical phase and the parsing phase.The analysis phase of a compiler breaks up a source program into contituent pieces and produces an internal representation for it, called a intermediate codes. Syntax-directed translation refers to a method of compiler implementation where the source language translation is completely driven by the parser. In other words, the parsing process and parse trees are used to direct semantic analysis and the translation of the source program. This can be a separate phase of a compiler or we can augment our conventional grammar with information to control the semantic analysis and translation. Such grammars are called attribute grammars.\\
+}
+
+
+
+\section{Syntax-Directed Definitions and Translation Schemes}
+\paragraph{
+When we associate semantic rules with productions, we use two notations:
+}
+\subsection{Syntax-Directed Definitions}
+\paragraph{
+It give high-level specifications for translations. SDD hide many implementation details such as order of evaluation of semantic actions. We associate a production rule with a set of semantic actions, and we do not say when they will be evaluated.
+}
+\section{Translation Schemes}
+\paragraph{
+It indicate the order of evaluation of semantic actions associated with a production rule. In other words, translation schemes give a little bit information about implementation details.}
+\section{Translation of Expressions}
+\begin{tabular}{cc}
+%% row 1
+PRODUCTION
+&SEMANTIC RULES
+\\
+%% row 2
+\emph{S}$\rightarrow$ \textbf{id} = \emph{E};
+&\emph{S.code} = \emph{E.code || 
+& gen(\emph{top.get(\textbf{id}.\emph{lexeme} '='\emph{E.addr}
+\\
+%% row 3
+
+&
+\\
+%% row 4
+
+&
+\\
+%% row 5
+
+&
+\\
+%% row 6
+
+&
+\end{tabular}
+
+\end{document}

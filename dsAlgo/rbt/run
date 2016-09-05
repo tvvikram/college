@@ -1,0 +1,23 @@
+#!/bin/bash
+echo -e "Red Black Tree will now run...\n";
+filename="rbt";
+make
+echo -e "Default run is from 10 thousand to 1 lakh with offset 10 thousand. Is this ok...(y / n):\c";
+read ans
+if (test $ans = 'y' || test $ans = 'Y'); then
+	./$filename.out
+else
+	echo -e "Enter lower limit:\c";
+	read low
+	echo -e "Enter higher limit:\c";
+	read high
+	echo -e "Enter offset:\c";
+	read offset
+	./$filename.out $low $high $offset
+fi
+gnuplot -persist <<EOF
+set terminal jpeg
+set output "$filename.jpeg"
+plot "$filename.Ins.dat" with lines, "$filename.Del.dat" with lines
+EOF
+./folderClean.sh

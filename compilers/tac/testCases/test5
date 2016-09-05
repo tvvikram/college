@@ -1,0 +1,7 @@
+while (x>y)
+if (a >b)
+a=b+c;
+else if (b > c)
+c = b+ c;
+else
+c = d;

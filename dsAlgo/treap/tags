@@ -1,0 +1,40 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+TREAP	./treap.genOp.h	/^typedef struct treap *TREAP;$/;"	t	typeref:struct:treap
+TREAP	./treap.main.c	/^typedef struct treap * TREAP;$/;"	t	typeref:struct:treap	file:
+TREAP	treap.main.c	/^typedef struct treap * TREAP;$/;"	t	typeref:struct:treap	file:
+autodel	./treap.randomInsDel.c	/^TREAP autodel(TREAP t, int m)$/;"	f
+autodel	treap.randomInsDel.c	/^TREAP autodel(TREAP t, int m)$/;"	f
+autodelRoot	./treap.autoInsDel.c	/^TREAP autodelRoot(TREAP t, int m)$/;"	f
+autodelRoot	treap.autoInsDel.c	/^TREAP autodelRoot(TREAP t, int m)$/;"	f
+count	./treap.autoInsDel.c	/^int count = 0;$/;"	v
+count	./treap.genOp.h	/^	int info, priority, count;$/;"	m	struct:treap
+count	treap.autoInsDel.c	/^int count = 0;$/;"	v
+countTraverse	./treap.randomInsDel.c	/^int countTraverse;$/;"	v
+countTraverse	treap.randomInsDel.c	/^int countTraverse;$/;"	v
+dispInDotty	./treap.genOp.h	/^void dispInDotty(TREAP t, FILE *fp)$/;"	f
+dispTree	./treap.genOp.h	/^void dispTree(TREAP T)$/;"	f
+genRandTreap	./treap.autoInsDel.c	/^TREAP genRandTreap(TREAP t, int n)$/;"	f
+genRandTreap	treap.autoInsDel.c	/^TREAP genRandTreap(TREAP t, int n)$/;"	f
+getnode	./treap.genOp.h	/^TREAP getnode()$/;"	f
+info	./treap.genOp.h	/^	int info, priority, count;$/;"	m	struct:treap
+insert	./treap.insDel.h	/^TREAP insert(TREAP T, TREAP z)$/;"	f
+insertFixUp	./treap.insDel.h	/^TREAP insertFixUp(TREAP t, TREAP temp)$/;"	f
+leftRotate	./treap.genOp.h	/^TREAP leftRotate(TREAP T, TREAP x)			$/;"	f
+llink	./treap.genOp.h	/^	struct treap *llink, *rlink, *plink;	\/\/ setting left child, right child and parent links$/;"	m	struct:treap	typeref:struct:treap::treap
+main	./treap.main.c	/^int main(int argc, char **argv)$/;"	f
+main	treap.main.c	/^int main(int argc, char **argv)$/;"	f
+nTraverse	./treap.randomInsDel.c	/^TREAP nTraverse(TREAP t, int n)$/;"	f
+nTraverse	treap.randomInsDel.c	/^TREAP nTraverse(TREAP t, int n)$/;"	f
+plink	./treap.genOp.h	/^	struct treap *llink, *rlink, *plink;	\/\/ setting left child, right child and parent links$/;"	m	struct:treap	typeref:struct:treap::
+priority	./treap.genOp.h	/^	int info, priority, count;$/;"	m	struct:treap
+randomInsert	./treap.randomInsDel.c	/^TREAP randomInsert(TREAP t)$/;"	f
+randomInsert	treap.randomInsDel.c	/^TREAP randomInsert(TREAP t)$/;"	f
+rightRotate	./treap.genOp.h	/^TREAP rightRotate(TREAP T, TREAP x)			$/;"	f
+rlink	./treap.genOp.h	/^	struct treap *llink, *rlink, *plink;	\/\/ setting left child, right child and parent links$/;"	m	struct:treap	typeref:struct:treap::
+search	./treap.genOp.h	/^TREAP search(TREAP t, int key)$/;"	f
+treap	./treap.genOp.h	/^struct treap$/;"	s

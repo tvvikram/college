@@ -1,0 +1,32 @@
+<?php
+	$db = $_POST['DB'];
+	$user = $_COOKIE['username'];
+	$password = $_COOKIE['password'];
+	setcookie("db", $db, false, "/", false);
+	echo $_COOKIE['db'];
+	echo "User : $user.";
+?>
+<html>
+	<head><title>Tables in <?php echo $db ?></title></head>
+	<body>
+		<?php
+				@$connection = mysql_connect("localhost", "$user", "$password") or die("Could not connect to server...  " .mysql_error());
+				mysql_select_db($db, $connection) or die("Could not open $db.");
+				echo $db;
+				$query = "show tables";
+				$result = mysql_query($query, $connection);
+				$num_of_rows = mysql_num_rows($result);
+		?>
+		
+		<form method="POST" action="tuples.php">
+		<?php
+				for ($i = 0; $i < $num_of_rows; $i = $i + 1)
+				{
+					$row = mysql_fetch_array($result); ?>
+					<br /><input type="submit" value="<?php echo $row[0] ?>" name="tuple"><tr /><br /><br />
+			<?php
+				}
+		?>
+		</form>
+	</body>
+</html>
