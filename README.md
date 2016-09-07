@@ -22,5 +22,6 @@ The repo contains the following projects:
   * Student Alumni database
 
 * Others
+  * lkmp - Linux Kernel Module Programming. Files and ppt used for learning/presentation during college.
   * Telephone billing software - Only SRS, SDS and tests.
   * Compression and Decompression - Minimum Variance Huffman Coding implementation.
