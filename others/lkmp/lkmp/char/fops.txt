@@ -1,0 +1,12 @@
+static struct file_operations fops = {
+	.read = device_read,
+	.write = device_write,
+	.open = device_open,
+	.release = device_release
+};
+
+Major = register_chrdev(0, DEVICE_NAME, &fops);
+
+ try_module_get(THIS_MODULE): Increment the use count.
+ try_module_put(THIS_MODULE): Decrement the use count.
+
