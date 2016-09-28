@@ -8,6 +8,7 @@ The repo contains the following projects:
   * Betaparse and TAC - Projects to generate three address code for a subset of 'C' using lex-yacc.
   * HandwrittenLexerParser - 'C' implementation to generate ASTs for a subset of 'C'.
   * MRIS - Final year project. A kind of instruction scheduling to reduce the number of registers used during register allocation.
+  * LoopFusion - While at CompilerTree, guided few interns to implement loop fusion in LLVM.
 
 * dsAlgo: Few Data Structures and Alogrithm Implementations:
   * B+ Tree - Insert and search operations.
